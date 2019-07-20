@@ -2,7 +2,7 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 
-const About = ({ data }) => {
+const Faves = ({ data }) => {
   return (
     <ScrollView>
       {data.allConducts.map(({ title, description }) => {
@@ -21,4 +21,4 @@ const About = ({ data }) => {
   );
 };
 
-export default About;
+export default Faves;
