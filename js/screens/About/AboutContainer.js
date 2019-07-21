@@ -20,6 +20,15 @@ const QUERY_ABOUT = gql`
   }
 `;
 class AboutContainer extends Component {
+  static navigationOptions = {
+    title: "About",
+    headerTitleStyle: {
+      color: "white",
+      fontSize: 24,
+      fontFamily: "Montserrat",
+      marginBottom: 10
+    }
+  };
   render() {
     return (
       <View>
