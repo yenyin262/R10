@@ -8,7 +8,7 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Schedule from "./Schedule";
 import { colors } from "../../config/styles";
-// import {formatSessionData} from "../../lib/dataFormatForSchedule";
+import { formatSessionData } from "../../lib/dataFormatForSchedule";
 const QUERY_SCHEDULE = gql`
   query {
     allSessions {
@@ -20,6 +20,15 @@ const QUERY_SCHEDULE = gql`
   }
 `;
 class ScheduleContainer extends Component {
+  static navigationOptions = {
+    title: "Schedule",
+    headerTitleStyle: {
+      color: "white",
+      fontSize: 24,
+      fontFamily: "Montserrat",
+      marginBottom: 10
+    }
+  };
   render() {
     return (
       <View>
