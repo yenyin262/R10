@@ -1,18 +1,22 @@
 // expect data and display it
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
+// import {formatSessionData} from "../../lib/dataFormatForSchedule"
 
 const Schedule = ({ data }) => {
   return (
     <ScrollView>
-      {data.allConducts.map(({ title, description }) => {
+      {data.allSessions.map(({ id, startTime, title, location }) => {
         return (
-          <View key={title}>
+          <View key={id}>
+            <View>
+              <Text>{startTime}</Text>
+            </View>
             <View>
               <Text>{title}</Text>
             </View>
             <View>
-              <Text>{description}</Text>
+              <Text>{location}</Text>
             </View>
           </View>
         );

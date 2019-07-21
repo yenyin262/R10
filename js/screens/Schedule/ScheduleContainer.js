@@ -8,15 +8,48 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Schedule from "./Schedule";
 import { colors } from "../../config/styles";
-
+// import {formatSessionData} from "../../lib/dataFormatForSchedule";
+const QUERY_SCHEDULE = gql`
+  query {
+    allSessions {
+      id
+      startTime
+      title
+      location
+    }
+  }
+`;
 class ScheduleContainer extends Component {
   render() {
     return (
       <View>
-        <Text>Schedule</Text>
+        <Query query={QUERY_SCHEDULE}>
+          {/* {({ loading, formatSessionData, error }) => { */}
+
+          {({ loading, data, error }) => {
+            if (loading)
+              return (
+                <ActivityIndicator
+                  animating={true}
+                  size="large"
+                  color={colors.Purple}
+                  style={styles.indicator}
+                />
+              );
+
+            if (error) return <Text> Error :(</Text>;
+            return <Schedule data={data} />;
+            //return <Schedule formatSessionData={formatSessionData} />;
+          }}
+        </Query>
       </View>
     );
   }
 }
-
+const styles = StyleSheet.create({
+  indicator: {
+    width: 200,
+    height: 200
+  }
+});
 export default ScheduleContainer;
