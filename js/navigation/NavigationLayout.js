@@ -8,7 +8,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
 
 import ScheduleScreen from "../screens/Schedule";
-// import SessionScreen from "../screens/Sessions";
+import MapScreen from "../screens/Map";
 import FavesScreen from "../screens/Faves";
 
 const AboutStack = createStackNavigator(
@@ -41,13 +41,24 @@ const ScheduleStack = createStackNavigator(
     })
   }
 );
+const MapStack = createStackNavigator(
+  {
+    Map: MapScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 // Dedicated stacks for Schedule and Faves will go here too!
 
 const TabNavigator = createBottomTabNavigator(
   {
-    About: AboutStack,
+    Schedule: ScheduleStack,
+    Map: MapStack,
     Faves: FavesStack,
-    Schedule: ScheduleStack
+    About: AboutStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -56,9 +67,11 @@ const TabNavigator = createBottomTabNavigator(
         let iconName;
         if (routeName === "Faves") {
           iconName = `ios-heart`;
-        } else if (routeName === "About") {
-          iconName = `ios-information-circle`;
+        } else if (routeName === "Map") {
+          iconName = `ios-map`;
         } else if (routeName === "Schedule") {
+          iconName = `ios-calendar`;
+        } else if (routeName === "About") {
           iconName = `ios-information-circle`;
         }
         return <Icon name={iconName} size={25} color={tintColor} />;
