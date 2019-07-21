@@ -3,15 +3,17 @@
 // props to about container
 
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import About from "./About";
 import { colors } from "../../config/styles";
+import styles from "./styles";
 
 const QUERY_ABOUT = gql`
   query {
     allConducts {
+      id
       title
       description
     }
@@ -42,10 +44,10 @@ class AboutContainer extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  indicator: {
-    width: 200,
-    height: 200
-  }
-});
+// const styles = StyleSheet.create({
+//   indicator: {
+//     width: 200,
+//     height: 200
+//   }
+// });
 export default AboutContainer;
