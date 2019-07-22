@@ -8,7 +8,6 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Schedule from "./Schedule";
 import { colors } from "../../config/styles";
-import { formatSessionData } from "../../lib/dataFormatForSchedule";
 const QUERY_SCHEDULE = gql`
   query {
     allSessions {
