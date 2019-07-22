@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  SectionList,
-  StyleSheet,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, SectionList, TouchableOpacity } from "react-native";
+import styles from "./style";
 import { withNavigation } from "react-navigation";
 import { formatSessionData } from "../../lib/dataFormatForSchedule";
 import moment from "moment";
@@ -32,11 +27,13 @@ class SessionDataList extends Component {
               }}
             >
               <View key={item.id}>
-                <View>
-                  <Text>{item.title}</Text>
-                </View>
-                <View>
-                  <Text>{item.location}</Text>
+                <View style={styles.container}>
+                  <View>
+                    <Text style={styles.title}>{item.title}</Text>
+                  </View>
+                  <View>
+                    <Text style={styles.location}>{item.location}</Text>
+                  </View>
                 </View>
               </View>
             </TouchableOpacity>
@@ -44,7 +41,7 @@ class SessionDataList extends Component {
           sections={formatSchedule}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
           renderSectionHeader={({ section: { title } }) => (
-            <Text>{moment(title).format("LT")}</Text>
+            <Text style={styles.time}>{moment(title).format("LT")}</Text>
             // this title is the section title each data belongs to that title
             // <Text>{title}</Text>
           )}
@@ -54,13 +51,5 @@ class SessionDataList extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  separator: {
-    padding: 10,
-    borderBottomColor: "grey",
-    borderBottomWidth: 1
-  }
-});
 
 export default withNavigation(SessionDataList);
