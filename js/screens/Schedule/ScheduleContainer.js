@@ -15,6 +15,7 @@ const QUERY_SCHEDULE = gql`
       startTime
       title
       location
+      description
     }
   }
 `;
@@ -47,7 +48,6 @@ class ScheduleContainer extends Component {
 
             if (error) return <Text> Error :(</Text>;
             return <Schedule data={data} />;
-            //return <Schedule formatSessionData={formatSessionData} />;
           }}
         </Query>
       </View>
