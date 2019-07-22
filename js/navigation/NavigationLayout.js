@@ -6,7 +6,7 @@ import {
 import AboutScreen from "../screens/About";
 import Icon from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
-
+import SessionScreen from "../screens/Sessions";
 import ScheduleScreen from "../screens/Schedule";
 import MapScreen from "../screens/Map";
 import FavesScreen from "../screens/Faves";
@@ -33,7 +33,8 @@ const FavesStack = createStackNavigator(
 );
 const ScheduleStack = createStackNavigator(
   {
-    Schedule: ScheduleScreen
+    Schedule: ScheduleScreen,
+    Session: SessionScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -62,7 +63,7 @@ const TabNavigator = createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+      tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === "Faves") {
