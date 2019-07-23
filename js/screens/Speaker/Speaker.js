@@ -2,21 +2,15 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 
-const Speaker = ({ data }) => {
+const Speaker = ({ speaker }) => {
+  console.log(speaker, "at speaker");
   return (
     <ScrollView>
-      {data.allConducts.map(({ title, description }) => {
-        return (
-          <View key={title}>
-            <View>
-              <Text>{title}</Text>
-            </View>
-            <View>
-              <Text>{description}</Text>
-            </View>
-          </View>
-        );
-      })}
+      <View>
+        <Text>{speaker.bio}</Text>
+        <Text>{session.title}</Text>
+        <Text>{speaker.name}</Text>
+      </View>
     </ScrollView>
   );
 };
