@@ -5,8 +5,6 @@ import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
 import moment from "moment";
 
 const Sessions = ({ session, speaker }) => {
-  console.log(speaker);
-  console.log(session, "ses");
   return (
     <ScrollView>
       <View>

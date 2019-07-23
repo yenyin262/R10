@@ -18,14 +18,15 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   title: {
-    fontSize: 19,
+    fontSize: 18,
     marginTop: 10,
+    fontWeight: "400",
     fontFamily: "Montserrat",
     color: "black",
     marginLeft: 20
   },
   time: {
-    fontSize: 17,
+    fontSize: 16,
     paddingTop: 7,
     fontFamily: "Montserrat",
     color: "black",
