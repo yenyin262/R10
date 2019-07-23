@@ -8,6 +8,8 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Schedule from "./Schedule";
 import { colors } from "../../config/styles";
+import FavesContext from "../../context/FavesContext";
+
 const QUERY_SCHEDULE = gql`
   query {
     allSessions {
@@ -29,7 +31,14 @@ class ScheduleContainer extends Component {
       marginBottom: 10
     }
   };
+
+  static contextType = FavesContext;
+
   render() {
+    console.log(this.context, "this is context");
+    // need to be able to favorite a schedule item
+    // delete fav
+
     return (
       <View>
         <Query query={QUERY_SCHEDULE}>
