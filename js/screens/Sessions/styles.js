@@ -64,6 +64,29 @@ const styles = StyleSheet.create({
     borderBottomColor: "#e6e6e6",
     borderBottomWidth: 1,
     marginTop: 60
+  },
+
+  loginScreenButton: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginTop: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: "#9963ea",
+    borderRadius: 40,
+    borderWidth: 0.5,
+    height: 50,
+
+    borderColor: "#fff"
+  },
+  loginText: {
+    color: "#fff",
+    textAlign: "center",
+    paddingLeft: 10,
+    paddingRight: 10,
+    fontSize: 20,
+    fontWeight: "400",
+    fontFamily: "Montserrat"
   }
 });
 

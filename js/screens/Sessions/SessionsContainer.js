@@ -8,6 +8,8 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Sessions from "./Sessions";
 import { colors } from "../../config/styles";
+import FavesContext from "../../context/FavesContext";
+
 const QUERY_SPEAKER = gql`
   query getSpeaker($id: ID!) {
     Session(id: $id) {
@@ -31,11 +33,15 @@ class SessionsContainer extends Component {
       marginBottom: 10
     }
   };
+
+  static contextType = FavesContext;
   render() {
     const { navigation } = this.props;
+
     // navigation name of object and navigate directs us to the directed route
     const session = navigation.getParam("Session");
 
+    console.log(session, "my session");
     return (
       <View>
         <Query query={QUERY_SPEAKER} variables={{ id: session.id }}>
@@ -53,7 +59,12 @@ class SessionsContainer extends Component {
             if (error) return <Text> Error :(</Text>;
 
             return (
-              <Sessions speaker={data.Session.speaker} session={session} />
+              <Sessions
+                speaker={data.Session.speaker}
+                session={session}
+                addFaves={this.context.addFaves}
+                navigation={this.props.navigation}
+              />
             );
           }}
         </Query>
