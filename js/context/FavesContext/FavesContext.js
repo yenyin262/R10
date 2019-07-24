@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { AsyncStorage } from "react-native";
 
+// create context is what
 const FavesContext = React.createContext();
 
 class FavesProvider extends Component {
@@ -12,13 +14,15 @@ class FavesProvider extends Component {
   }
   async componentDidMount() {
     await getFavedSessionIds();
+    this.setState({ faveIds: finalResult });
   }
   async getFavedSessionIds() {
-    AsyncStorage.getAllKeys.then(keys => {
+    return AsyncStorage.getAllKeys().then(keys => {
       return AsyncStorage.multiGet(keys).then(result => {
-        var finalResult = {};
-        for (var i = 0; i > result.length; i++) {
-          finalResult[arr[i].key] = result[i].value;
+        var finalResult = ["a", "b"];
+        console.log(result, "results");
+        for (const i of result) {
+          finalResult[i[0]] = i[0];
         }
 
         this.setState({ faveIds: finalResult });
@@ -37,26 +41,27 @@ class FavesProvider extends Component {
   }
 
   async addFaves(sessionId) {
+    console.log(sessionId, "sessionid");
     try {
-      const addItem = await AsyncStorage.addItem(sessionId);
-      const item = JSON.parse(addItem);
-      return item;
+      await AsyncStorage.setItem(sessionId, "savedfave");
+      //   const savedItem = await AsyncStorage.setItem(sessionId);
+      //   const item = JSON.parse(addItem);
     } catch (error) {
-      console.log("Error " + error.value);
+      console.log(error);
     }
   }
 
   render() {
     return (
-      //   <FavesContext.Provider value={this.state}>
+      //FavesContext.Provider - is the beginning where we put values
+      // so we can use later
       <FavesContext.Provider
         value={{
-          getFavedSessionIds: this.getFavedSessionIds,
-          addFaves: this.addFaves.addFaves,
+          getFavedSessionIds: this.getFavedSessionIds.bind(this),
+          addFaves: this.addFaves.bind(this),
           removeFaves: this.removeFaves
         }}
       >
-        {/* <FavesContext.Provider value={{ banana: 1 }}> */}
         {this.props.children}
       </FavesContext.Provider>
     );

@@ -4,6 +4,7 @@ import styles from "./style";
 import { withNavigation } from "react-navigation";
 import { formatSessionData } from "../../lib/dataFormatForSchedule";
 import moment from "moment";
+// import Icon from "react-native-vector-icons/Ionicons";
 
 class SessionDataList extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class SessionDataList extends Component {
                   </View>
                   <View>
                     <Text style={styles.location}>{item.location}</Text>
+                    {/* <Icon name="ios-heart-empty" /> */}
                   </View>
                 </View>
               </View>
