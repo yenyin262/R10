@@ -12,8 +12,8 @@ import {
 import moment from "moment";
 import LinearGradient from "react-native-linear-gradient";
 
-const Sessions = ({ session, speaker, addFaves, navigation }) => {
-  console.log(speaker, "this is a speaker");
+const Sessions = ({ session, speaker, navigation, favesFunctionality }) => {
+  console.log(favesFunctionality, "this is a speaker");
   return (
     <ScrollView>
       <View>
@@ -36,25 +36,35 @@ const Sessions = ({ session, speaker, addFaves, navigation }) => {
             <Text style={styles.speakerName}>{speaker.name}</Text>
           </View>
         </TouchableOpacity>
+
         <View style={styles.lineSeparator} />
-        <LinearGradient
-          colors={["#cf392a", "#9963ea"]}
-          start={{ x: 0.0, y: 1.0 }}
-          end={{ x: 1.0, y: 0.0 }}
-          style={[
-            StyleSheet.absoluteFill,
-            { height: 120, width: "100%" },
-            styles.loginScreenButton
-          ]}
-        >
-          <TouchableOpacity
-            // style=
-            onPress={() => addFaves(session.id)}
-            // underlayColor="#fff"
+
+        <View style={styles.favebuttonContainer}>
+          <LinearGradient
+            colors={["#cf392a", "#9963ea"]}
+            start={{ x: 0.0, y: 1.0 }}
+            end={{ x: 1.0, y: 0.0 }}
+            style={[
+              StyleSheet.absoluteFill,
+              { width: "65%" },
+              styles.favebutton
+            ]}
           >
-            <Text style={styles.loginText}>Add to Favorites </Text>
-          </TouchableOpacity>
-        </LinearGradient>
+            <TouchableOpacity
+              onPress={() => {
+                // console.log(favesFunctionality.getFavedSessionIds, "Functions");
+                const isFave = favesFunctionality.addFaves(session.id);
+                const notFave = favesFunctionality.removeFaves(session.id);
+                const checkFaves = favesFunctionality.getFavedSessionIds.includes(
+                  session.id
+                );
+              }}
+              // underlayColor="#fff"
+            >
+              <Text style={styles.faveText}> Remove from Faves </Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </View>
       </View>
     </ScrollView>
   );
@@ -62,3 +72,6 @@ const Sessions = ({ session, speaker, addFaves, navigation }) => {
 
 export default Sessions;
 // export default withNavigation(Sessions);
+
+// if there is faves - show the remove faves
+// if no faves - add faves
