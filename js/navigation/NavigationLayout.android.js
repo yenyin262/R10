@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  createStackNavigator,
-  createBottomTabNavigator
-} from "react-navigation";
+import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import AboutScreen from "../screens/About";
 import Icon from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
@@ -10,6 +7,10 @@ import SessionScreen from "../screens/Sessions";
 import ScheduleScreen from "../screens/Schedule";
 import MapScreen from "../screens/Map";
 import FavesScreen from "../screens/Faves";
+import { colors } from "../config/styles";
+
+// takes 2 objects = param
+// name of screen a.
 
 const AboutStack = createStackNavigator(
   {
@@ -52,9 +53,9 @@ const MapStack = createStackNavigator(
     })
   }
 );
-// Dedicated stacks for Schedule and Faves will go here too!
 
-const TabNavigator = createBottomTabNavigator(
+// Dedicated stacks for Schedule and Faves will go here too!
+const MyDrawerNavigator = createDrawerNavigator(
   {
     Schedule: ScheduleStack,
     Map: MapStack,
@@ -63,33 +64,34 @@ const TabNavigator = createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ tintColor }) => {
+      drawerIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
+
         if (routeName === "Faves") {
-          iconName = `ios-heart`;
+          iconName = `md-heart`;
         } else if (routeName === "Map") {
-          iconName = `ios-map`;
+          iconName = `md-map`;
         } else if (routeName === "Schedule") {
-          iconName = `ios-calendar`;
+          iconName = `md-calendar`;
         } else if (routeName === "About") {
-          iconName = `ios-information-circle`;
+          iconName = `md-information-circle`;
         }
-        return <Icon name={iconName} size={25} color={tintColor} />;
+        return <Icon name={iconName} size={30} color={tintColor} />;
       }
     }),
+    drawerWidth: 200,
+    contentOptions: {
+      activeTintColor: colors.Purple,
+      inactiveTintColor: colors.MediumGrey,
 
-    tabBarOptions: {
-      activeTintColor: "white",
-      inactiveTintColor: "#999999",
       labelStyle: {
-        fontSize: 10,
-        fontFamily: "Montserrat"
-      },
-      style: {
-        backgroundColor: "black"
+        fontSize: 18,
+        fontFamily: "Montserrat-Regular",
+        fontWeight: "300"
       }
     }
   }
 );
-export default TabNavigator;
+
+export default MyDrawerNavigator;
