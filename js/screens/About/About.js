@@ -33,10 +33,12 @@ const About = ({ data }) => {
         return (
           <View key={id}>
             <View style={styles.containerText}>
-              <Text style={styles.add}> + </Text>
+              <Text style={styles.add}> - </Text>
               <Text style={styles.aboutTitle}> {title}</Text>
             </View>
-            <View>{/* <Text>{description}</Text> */}</View>
+            <View>
+              <Text style={styles.description}>{description}</Text>
+            </View>
           </View>
         );
       })}

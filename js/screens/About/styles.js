@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    // paddingBottom: 50,
     height: 60,
     width: 250,
     marginLeft: 50,
@@ -22,7 +21,12 @@ const styles = StyleSheet.create({
 
   header: {
     fontSize: 30,
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     margin: 15,
     marginBottom: 20,
     marginTop: 10
@@ -31,16 +35,27 @@ const styles = StyleSheet.create({
     fontSize: 17.5,
     margin: 18,
     fontWeight: "100",
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     lineHeight: 25,
     marginTop: 15
   },
   aboutTitle: {
     color: "#9963ea",
     fontWeight: "500",
-    fontSize: 20,
-    marginBottom: 23,
-    fontFamily: "Montserrat"
+    fontSize: 18,
+    marginVertical: 10,
+    paddingLeft: 2,
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    })
   },
   containerText: {
     flexDirection: "row"
@@ -48,8 +63,25 @@ const styles = StyleSheet.create({
   add: {
     fontSize: 20,
     color: "#9963ea",
-    fontFamily: "Montserrat",
-    marginLeft: 15
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
+    marginHorizontal: 5
+  },
+  description: {
+    fontSize: 17.5,
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
+    lineHeight: 25,
+    fontWeight: "100",
+    marginHorizontal: 15
   }
 });
 

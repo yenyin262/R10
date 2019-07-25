@@ -6,27 +6,50 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     color: "#999999",
     fontSize: 20,
-    fontFamily: "Montserrat"
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    })
   },
   sessionTitle: {
     fontSize: 30,
     marginTop: 20,
-    fontFamily: "Montserrat",
-    color: "black",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular",
+        color: "#999999"
+      },
+      ios: { fontFamily: "Montserrat", color: "black" }
+    }),
+
     marginLeft: 20
   },
 
   time: {
     color: "#cf392a",
-    fontSize: 20,
+
     fontWeight: "600",
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular",
+        fontSize: 18
+      },
+      ios: { fontFamily: "Montserrat", fontSize: 20 }
+    }),
     marginTop: 20,
     marginLeft: 20
   },
   description: {
     marginHorizontal: 10,
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular",
+        fontWeight: "light"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     fontSize: 20,
     lineHeight: 30,
     fontWeight: "200"
@@ -36,7 +59,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     color: "#999999",
     fontSize: 20,
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     marginBottom: 20
   },
   avatar: {
@@ -54,7 +82,12 @@ const styles = StyleSheet.create({
   speakerName: {
     fontSize: 19,
     marginLeft: 10,
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     paddingHorizontal: 5
   },
   lineSeparator: {
@@ -87,7 +120,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "400",
     color: "white",
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     flexDirection: "column-reverse"
     // alignItems: "flex-end"
   },

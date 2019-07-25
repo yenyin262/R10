@@ -3,7 +3,7 @@
 // props to about container
 
 import React, { Component } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, Platform } from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import About from "./About";
@@ -25,8 +25,10 @@ class AboutContainer extends Component {
     headerTitleStyle: {
       color: "white",
       fontSize: 24,
-      fontFamily: "Montserrat",
-      marginBottom: 10
+      ...Platform.select({
+        android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
+        ios: { marginBottom: 10, fontFamily: "Montserrat" }
+      })
     }
   };
   render() {
