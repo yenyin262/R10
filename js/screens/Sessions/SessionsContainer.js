@@ -18,6 +18,7 @@ const QUERY_SPEAKER = gql`
         bio
         image
         name
+        url
       }
     }
   }
@@ -59,12 +60,19 @@ class SessionsContainer extends Component {
             if (error) return <Text> Error :(</Text>;
 
             return (
-              <Sessions
-                speaker={data.Session.speaker}
-                session={session}
-                addFaves={this.context.addFaves}
-                navigation={this.props.navigation}
-              />
+              <FavesContext.Consumer>
+                {value => (
+                  <Sessions
+                    speaker={data.Session.speaker}
+                    session={session}
+                    favesFunctionality={value}
+                    // addFaves={this.context.addFaves}
+                    // removesFaves={this.context.removeFaves}
+                    // checkForFaves={this.context.getFavedSessionIds}
+                    navigation={this.props.navigation}
+                  />
+                )}
+              </FavesContext.Consumer>
             );
           }}
         </Query>
