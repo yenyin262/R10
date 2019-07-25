@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
     marginLeft: 20
   },
   description: {
-    marginTop: 20,
-    marginLeft: 20,
+    marginHorizontal: 10,
     fontFamily: "Montserrat",
     fontSize: 20,
     lineHeight: 30,
@@ -64,29 +63,37 @@ const styles = StyleSheet.create({
     borderBottomColor: "#e6e6e6",
     borderBottomWidth: 1,
     marginTop: 60
+    // marginBottom: "auto"
   },
 
-  loginScreenButton: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
+  favebuttonContainer: {
+    // marginRight: 40,
+    // marginLeft: 40,
+    marginTop: 25,
     paddingTop: 10,
     paddingBottom: 10,
-    backgroundColor: "#9963ea",
-    borderRadius: 40,
-    borderWidth: 0.5,
-    height: 50,
+    // backgroundColor: "#9963ea",
 
-    borderColor: "#fff"
+    // borderWidth: 0.5,
+    height: 50
+    // marginTop: "auto",
   },
-  loginText: {
-    color: "#fff",
+  faveText: {
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
+    marginTop: 10,
+    paddingTop: 5,
     fontSize: 20,
     fontWeight: "400",
-    fontFamily: "Montserrat"
+    color: "white",
+    fontFamily: "Montserrat",
+    flexDirection: "column-reverse"
+    // alignItems: "flex-end"
+  },
+
+  favebutton: {
+    borderRadius: 37.5
   }
 });
 
