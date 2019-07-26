@@ -3,7 +3,7 @@
 // props to about container
 
 import React, { Component } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, Platform } from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Sessions from "./Sessions";
@@ -26,12 +26,14 @@ const QUERY_SPEAKER = gql`
 
 class SessionsContainer extends Component {
   static navigationOptions = {
-    title: "Sessions",
+    title: "Session",
     headerTitleStyle: {
       color: "white",
       fontSize: 24,
-      fontFamily: "Montserrat",
-      marginBottom: 10
+      ...Platform.select({
+        android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
+        ios: { marginBottom: 10, fontFamily: "Montserrat" }
+      })
     }
   };
 
@@ -42,7 +44,6 @@ class SessionsContainer extends Component {
     // navigation name of object and navigate directs us to the directed route
     const session = navigation.getParam("Session");
 
-    console.log(session, "my session");
     return (
       <View>
         <Query query={QUERY_SPEAKER} variables={{ id: session.id }}>
@@ -60,19 +61,19 @@ class SessionsContainer extends Component {
             if (error) return <Text> Error :(</Text>;
 
             return (
-              <FavesContext.Consumer>
-                {value => (
-                  <Sessions
-                    speaker={data.Session.speaker}
-                    session={session}
-                    favesFunctionality={value}
-                    // addFaves={this.context.addFaves}
-                    // removesFaves={this.context.removeFaves}
-                    // checkForFaves={this.context.getFavedSessionIds}
-                    navigation={this.props.navigation}
-                  />
-                )}
-              </FavesContext.Consumer>
+              // <FavesContext.Consumer>
+              //   {value => (
+              <Sessions
+                speaker={data.Session.speaker}
+                session={session}
+                // favesFunctionality={value}
+                addFaves={this.context.addFaves}
+                removesFaves={this.context.removeFaves}
+                checkForFaves={this.context.getFavedSessionIds}
+                navigation={this.props.navigation}
+              />
+              //   )}
+              // </FavesContext.Consumer>
             );
           }}
         </Query>

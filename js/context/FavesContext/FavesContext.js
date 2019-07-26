@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { AsyncStorage } from "react-native";
+//import { getFavs } from "../../config/models";
 
 // create context is what
+// allows us to do similar things to a global state
+// create a context component insert a value
 const FavesContext = React.createContext();
 
 class FavesProvider extends Component {
@@ -19,26 +22,56 @@ class FavesProvider extends Component {
   async getFavedSessionIds() {
     return AsyncStorage.getAllKeys().then(keys => {
       return AsyncStorage.multiGet(keys).then(result => {
-        var finalResult = ["a", "b"];
+        var finalResult = [];
         console.log(result, "results");
         for (const i of result) {
           finalResult[i[0]] = i[0];
         }
 
         this.setState({ faveIds: finalResult });
+        console.log(finalResult, "myFaves");
         return finalResult;
       });
     });
   }
 
+  // testing === to debug
+  // componentDidMount() {
+  //   this.getFavedSessionIds();
+  // }
+  //   async getFavedSessionIds() {
+  //     return AsyncStorage.getAllKeys().then(keys => {
+  //       return AsyncStorage.multiGet(keys).then(result => {
+  //         var finalResult = ["a", "b"];
+  //         console.log(result, "results");
+  //         for (const i of result) {
+  //           finalResult[i[0]] = i[0];
+  //         }
+
+  //         this.setState({ faveIds: finalResult });
+  //         return finalResult;
+  //       });
+  //     });
+  //   }
+
   async removeFaves(sessionId) {
     try {
-      const removedItem = await AsyncStorage.removedItem(sessionId);
+      const removedItem = await AsyncStorage.removeItem(sessionId);
       return removedItem;
     } catch (error) {
-      console.log("Error " + error.value);
+      console.log(error);
     }
   }
+
+  // getFavedSessionIds = async () => {
+  //   try {
+  //     const myFavs = await getFavs();
+  //     const myFavsIds = myFavs.map(favs => favs[0]);
+  //     this.setState({ faveIds: myFavsIds });
+  //   } catch (e) {
+  //     return false;
+  //   }
+  // };
 
   async addFaves(sessionId) {
     console.log(sessionId, "sessionid");
@@ -57,9 +90,11 @@ class FavesProvider extends Component {
       // so we can use later
       <FavesContext.Provider
         value={{
+          ///{testing to debug
+          // ...this.state},
           getFavedSessionIds: this.getFavedSessionIds.bind(this),
           addFaves: this.addFaves.bind(this),
-          removeFaves: this.removeFaves
+          removeFaves: this.removeFaves.bind(this)
         }}
       >
         {this.props.children}
