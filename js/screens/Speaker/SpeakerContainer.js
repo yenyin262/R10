@@ -6,6 +6,7 @@ import React, { Component } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import Speaker from "./Speaker";
 import styles from "./styles";
+import Icon from "react-native-vector-icons/Ionicons";
 
 class SpeakerContainer extends Component {
   render() {
@@ -15,9 +16,10 @@ class SpeakerContainer extends Component {
     return (
       <View style={{ backgroundColor: "black", height: "100%" }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={{ color: "white", paddingTop: 30 }}>
-            X<Text style={styles.faveText}> About the Speaker </Text>
-          </Text>
+          <View style={styles.modal}>
+            <Icon name="ios-close" size={45} style={styles.icon} />
+            <Text style={styles.aboutSpeakerText}> About the Speaker </Text>
+          </View>
         </TouchableOpacity>
         <Speaker speaker={speaker} />
       </View>

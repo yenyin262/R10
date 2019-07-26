@@ -2,41 +2,67 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   subText: {
-    marginTop: 30,
-    marginLeft: 20,
+    marginHorizontal: 50,
     color: "black",
     fontSize: 28,
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     marginBottom: 20
   },
 
   speakerBio: {
     fontSize: 18,
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     fontWeight: "200",
-    lineHeight: 30
+    lineHeight: 30,
+    marginHorizontal: 10
   },
-  avatar: {
+  img: {
     width: 120,
     height: 120,
     borderRadius: 60,
-    // marginTop: 20,
-    marginLeft: 20
+    marginLeft: 90,
+    marginVertical: 20
   },
 
-  favebuttonContainer: {
-    // marginRight: 40,
-    // marginLeft: 40,
+  readMorebuttonContainer: {
     marginTop: 25,
     paddingTop: 10,
     paddingBottom: 10,
-    // backgroundColor: "#9963ea",
-
-    // borderWidth: 0.5,
     height: 50
-    // marginTop: "auto",
   },
-  faveText: {
+  aboutSpeakerText: {
+    textAlign: "center",
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginTop: 10,
+
+    fontSize: 19,
+    fontWeight: "400",
+    color: "white",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
+    flexDirection: "column-reverse"
+  },
+
+  readMorebutton: {
+    borderRadius: 40,
+    marginLeft: 40
+  },
+  readMoreText: {
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
@@ -45,27 +71,25 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "400",
     color: "white",
-    fontFamily: "Montserrat",
+    ...Platform.select({
+      android: {
+        fontFamily: "Montserrat-Regular"
+      },
+      ios: { fontFamily: "Montserrat" }
+    }),
     flexDirection: "column-reverse"
-
-    // alignItems: "flex-end"
   },
-
-  favebutton: {
-    borderRadius: 40
+  modal: {
+    // marginLeft: 20
+    flexDirection: "row",
+    marginTop: 40
   },
-  faveText: {
-    textAlign: "center",
-    paddingLeft: 10,
-    paddingRight: 10,
-    marginTop: 10,
-    paddingTop: 5,
-    fontSize: 20,
-    fontWeight: "400",
+  icon: {
+    fontWeight: "200",
     color: "white",
-    fontFamily: "Montserrat",
-    flexDirection: "column-reverse"
-    // alignItems: "flex-end"
+    alignContent: "flex-end",
+    marginLeft: 20,
+    marginRight: 50
   }
 });
 

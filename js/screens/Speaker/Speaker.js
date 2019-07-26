@@ -22,19 +22,19 @@ const Speaker = ({ speaker }) => {
     <ScrollView>
       <View
         style={{
-          height: "95%",
+          height: "98%",
           width: "90%",
           marginHorizontal: 15,
-          marginTop: 50,
+          marginTop: 25,
           backgroundColor: "white",
           alignSelf: "center",
-          borderRadius: 20
+          borderRadius: 30
         }}
       >
-        <Image source={{ uri: speaker.image }} style={styles.avatar} />
+        <Image source={{ uri: speaker.image }} style={styles.img} />
         <Text style={styles.subText}>{speaker.name}</Text>
         <Text style={styles.speakerBio}>{speaker.bio}</Text>
-        <View style={styles.favebuttonContainer}>
+        <View style={styles.readMorebuttonContainer}>
           <LinearGradient
             colors={["#cf392a", "#9963ea"]}
             start={{ x: 0.0, y: 1.0 }}
@@ -42,11 +42,11 @@ const Speaker = ({ speaker }) => {
             style={[
               StyleSheet.absoluteFill,
               { width: "80%" },
-              styles.favebutton
+              styles.readMorebutton
             ]}
           >
             <TouchableOpacity onPress={() => Linking.openURL(speaker.url)}>
-              <Text style={styles.faveText}> Read more on Wikipedia </Text>
+              <Text style={styles.readMoreText}> Read more on Wikipedia </Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>
