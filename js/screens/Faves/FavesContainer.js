@@ -3,17 +3,23 @@
 // props to about container
 
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  Platform
-} from "react-native";
+import { View, Text, Platform } from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Faves from "./Faves";
-import { colors } from "../../config/styles";
+
+import LoaderScreen from "../../components/LoadingScreen";
+
+const QUERY_SESSIONS = gql`
+  query {
+    allSessions(orderBy: startTime_ASC) {
+      startTime
+      title
+      location
+      description
+    }
+  }
+`;
 
 class FavesContainer extends Component {
   static navigationOptions = {
@@ -30,10 +36,24 @@ class FavesContainer extends Component {
   render() {
     return (
       <View>
-        <Text>Faves</Text>
+        <Query query={QUERY_SESSIONS}>
+          {({ loading, data, error }) => {
+            if (loading) return <LoaderScreen />;
+
+            if (error) return <Text> Error :(</Text>;
+            return <Faves data={data} />;
+          }}
+        </Query>
       </View>
     );
   }
 }
+//     return (
+//       <View>
+//         <Text>Faves</Text>
+//       </View>
+//     );
+//   }
+// }
 
 export default FavesContainer;

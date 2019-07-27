@@ -3,12 +3,19 @@
 // props to about container
 
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  Platform
+} from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Schedule from "./Schedule";
 import { colors } from "../../config/styles";
 import FavesContext from "../../context/FavesContext";
+import LoaderScreen from "../../components/LoadingScreen";
 
 const QUERY_SCHEDULE = gql`
   query {
@@ -27,33 +34,30 @@ class ScheduleContainer extends Component {
     headerTitleStyle: {
       color: "white",
       fontSize: 24,
-      fontFamily: "Montserrat",
-      marginBottom: 10
+      ...Platform.select({
+        android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
+        ios: { marginBottom: 10, fontFamily: "Montserrat" }
+      })
     }
   };
 
   static contextType = FavesContext;
 
+  // async componentDidMount() {
+  //   this.getFavedSessionsIds;
+  //   try {
+  //     const myFaves = await this.context.getFavedSessionIds();
+  //    return myFaves
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
   render() {
-    console.log(this.context, "this is context");
-    // need to be able to favorite a schedule item
-    // delete fav
-
     return (
       <View>
         <Query query={QUERY_SCHEDULE}>
-          {/* {({ loading, formatSessionData, error }) => { */}
-
           {({ loading, data, error }) => {
-            if (loading)
-              return (
-                <ActivityIndicator
-                  animating={true}
-                  size="large"
-                  color={colors.Purple}
-                  style={styles.indicator}
-                />
-              );
+            if (loading) return <LoaderScreen />;
 
             if (error) return <Text> Error :(</Text>;
             return <Schedule data={data} />;
@@ -69,4 +73,8 @@ const styles = StyleSheet.create({
     height: 200
   }
 });
+
+ScheduleContainer.propTypes = {
+  // classes: PropTypes.object.isRequired
+};
 export default ScheduleContainer;

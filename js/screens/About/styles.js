@@ -16,7 +16,9 @@ const styles = StyleSheet.create({
   lineSeparator: {
     marginTop: 30,
     borderBottomColor: "#e6e6e6",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    marginHorizontal: 10,
+    width: "90%"
   },
 
   header: {
@@ -62,6 +64,7 @@ const styles = StyleSheet.create({
   },
   add: {
     fontSize: 20,
+    marginVertical: 8,
     color: "#9963ea",
     ...Platform.select({
       android: {
@@ -69,7 +72,8 @@ const styles = StyleSheet.create({
       },
       ios: { fontFamily: "Montserrat" }
     }),
-    marginHorizontal: 5
+    marginHorizontal: 5,
+    textAlign: "justify"
   },
   description: {
     fontSize: 17.5,

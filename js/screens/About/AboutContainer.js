@@ -1,14 +1,9 @@
-// create query
-// return about component
-// props to about container
-
 import React, { Component } from "react";
-import { View, Text, ActivityIndicator, Platform } from "react-native";
+import { View, Text, Platform } from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import About from "./About";
-import { colors } from "../../config/styles";
-import styles from "./styles";
+import LoaderScreen from "../../components/LoadingScreen";
 
 const QUERY_ABOUT = gql`
   query {
@@ -36,16 +31,7 @@ class AboutContainer extends Component {
       <View>
         <Query query={QUERY_ABOUT}>
           {({ loading, data, error }) => {
-            if (loading)
-              return (
-                <ActivityIndicator
-                  animating={true}
-                  size="large"
-                  color={colors.Purple}
-                  style={styles.indicator}
-                />
-              );
-
+            if (loading) return <LoaderScreen />;
             if (error) return <Text> Error :(</Text>;
             return <About data={data} />;
           }}
@@ -55,10 +41,4 @@ class AboutContainer extends Component {
   }
 }
 
-// const styles = StyleSheet.create({
-//   indicator: {
-//     width: 200,
-//     height: 200
-//   }
-// });
 export default AboutContainer;
