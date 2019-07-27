@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 //import { getFavs } from "../../config/models";
 
 // create context is what
@@ -12,25 +12,28 @@ class FavesProvider extends Component {
     super(props);
 
     this.state = {
-      faveIds: []
+      faveIds: [],
+      finalResult: []
     };
   }
   async componentDidMount() {
-    await getFavedSessionIds();
+    await this.getFavedSessionIds;
+    const { finalResult } = this.state;
     this.setState({ faveIds: finalResult });
   }
   async getFavedSessionIds() {
     return AsyncStorage.getAllKeys().then(keys => {
       return AsyncStorage.multiGet(keys).then(result => {
-        var finalResult = [];
+        var finalResultx = [];
         console.log(result, "results");
         for (const i of result) {
-          finalResult[i[0]] = i[0];
+          finalResultx[i[0]] = i[0];
         }
 
-        this.setState({ faveIds: finalResult });
-        console.log(finalResult, "myFaves");
-        return finalResult;
+        this.setState({ faveIds: finalResultx });
+        this.setState({ finalResult: finalResultx });
+        console.log(finalResultx, "myFaves");
+        return finalResultx;
       });
     });
   }
