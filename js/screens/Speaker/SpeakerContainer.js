@@ -1,7 +1,3 @@
-// create query
-// return about component
-// props to about container
-
 import React, { Component } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import Speaker from "./Speaker";

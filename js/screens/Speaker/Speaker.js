@@ -20,17 +20,7 @@ const Speaker = ({ speaker }) => {
 
   return (
     <ScrollView>
-      <View
-        style={{
-          height: "98%",
-          width: "90%",
-          marginHorizontal: 15,
-          marginTop: 25,
-          backgroundColor: "white",
-          alignSelf: "center",
-          borderRadius: 30
-        }}
-      >
+      <View style={styles.speakerView}>
         <Image source={{ uri: speaker.image }} style={styles.img} />
         <Text style={styles.subText}>{speaker.name}</Text>
         <Text style={styles.speakerBio}>{speaker.bio}</Text>

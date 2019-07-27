@@ -1,6 +1,15 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  speakerView: {
+    height: "98%",
+    width: "90%",
+    marginHorizontal: 15,
+    marginTop: 25,
+    backgroundColor: "white",
+    alignSelf: "center",
+    borderRadius: 30
+  },
   subText: {
     marginHorizontal: 50,
     color: "black",
@@ -80,7 +89,6 @@ const styles = StyleSheet.create({
     flexDirection: "column-reverse"
   },
   modal: {
-    // marginLeft: 20
     flexDirection: "row",
     marginTop: 40
   },
