@@ -85,7 +85,14 @@ const TabNavigator = createBottomTabNavigator(
         } else if (routeName === "About") {
           iconName = `ios-information-circle`;
         }
-        return <Icon name={iconName} size={25} color={tintColor} />;
+        return (
+          <Icon
+            name={iconName}
+            size={27}
+            color={tintColor}
+            style={{ paddingTop: 5, paddingBottom: 10 }}
+          />
+        );
       }
     }),
 
@@ -94,7 +101,7 @@ const TabNavigator = createBottomTabNavigator(
       inactiveTintColor: colors.MediumGrey,
 
       labelStyle: {
-        fontSize: 10,
+        fontSize: 14,
         fontFamily: "Montserrat",
         color: "white"
       },
