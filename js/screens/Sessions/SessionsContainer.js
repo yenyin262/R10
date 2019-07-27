@@ -9,6 +9,7 @@ import { gql } from "apollo-boost";
 import Sessions from "./Sessions";
 import { colors } from "../../config/styles";
 import FavesContext from "../../context/FavesContext";
+import LoaderScreen from "../../components/LoadingScreen";
 
 const QUERY_SPEAKER = gql`
   query getSpeaker($id: ID!) {
@@ -25,6 +26,23 @@ const QUERY_SPEAKER = gql`
 `;
 
 class SessionsContainer extends Component {
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     faveIds: []
+  //   };
+  // }
+
+  // async componentDidMount() {
+  //   try {
+  //     const myFaves = await this.context.getFavedSessionIds();
+  //    return myFaves
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
   static navigationOptions = {
     title: "Session",
     headerTitleStyle: {
@@ -38,6 +56,7 @@ class SessionsContainer extends Component {
   };
 
   static contextType = FavesContext;
+
   render() {
     const { navigation } = this.props;
 
@@ -48,15 +67,7 @@ class SessionsContainer extends Component {
       <View>
         <Query query={QUERY_SPEAKER} variables={{ id: session.id }}>
           {({ loading, data, error }) => {
-            if (loading)
-              return (
-                <ActivityIndicator
-                  animating={true}
-                  size="large"
-                  color={colors.Purple}
-                  // style={styles.indicator}
-                />
-              );
+            if (loading) return <LoaderScreen />;
 
             if (error) return <Text> Error :(</Text>;
 

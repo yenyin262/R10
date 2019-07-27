@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   locationTitle: {
-    marginTop: 30,
-    marginLeft: 20,
+    marginHorizontal: 10,
+    marginVertical: 22,
     color: "#999999",
     fontSize: 20,
     ...Platform.select({
@@ -14,8 +14,7 @@ const styles = StyleSheet.create({
     })
   },
   sessionTitle: {
-    fontSize: 30,
-    marginTop: 20,
+    fontSize: 35,
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
@@ -23,13 +22,11 @@ const styles = StyleSheet.create({
       },
       ios: { fontFamily: "Montserrat", color: "black" }
     }),
-
-    marginLeft: 20
+    marginHorizontal: 10
   },
 
   time: {
     color: "#cf392a",
-
     fontWeight: "600",
     ...Platform.select({
       android: {
@@ -39,10 +36,11 @@ const styles = StyleSheet.create({
       ios: { fontFamily: "Montserrat", fontSize: 20 }
     }),
     marginTop: 20,
-    marginLeft: 20
+    marginHorizontal: 10
   },
   description: {
     marginHorizontal: 10,
+    marginVertical: 20,
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
@@ -50,13 +48,13 @@ const styles = StyleSheet.create({
       },
       ios: { fontFamily: "Montserrat" }
     }),
-    fontSize: 20,
-    lineHeight: 30,
+    fontSize: 22,
+    lineHeight: 32,
     fontWeight: "200"
   },
   subText: {
-    marginTop: 30,
-    marginLeft: 20,
+    marginVertical: 15,
+    marginHorizontal: 10,
     color: "#999999",
     fontSize: 20,
     ...Platform.select({
@@ -67,11 +65,10 @@ const styles = StyleSheet.create({
     }),
     marginBottom: 20
   },
-  avatar: {
+  image: {
     width: 70,
     height: 70,
     borderRadius: 35,
-    // marginTop: 20,
     marginLeft: 20
   },
   speakerContainer: {
@@ -82,6 +79,7 @@ const styles = StyleSheet.create({
   speakerName: {
     fontSize: 19,
     marginLeft: 10,
+
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular"
@@ -95,21 +93,15 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderBottomColor: "#e6e6e6",
     borderBottomWidth: 1,
-    marginTop: 60
-    // marginBottom: "auto"
+    marginVertical: 15
   },
 
   favebuttonContainer: {
-    // marginRight: 40,
-    // marginLeft: 40,
-    marginTop: 25,
+    marginVertical: 13,
     paddingTop: 10,
     paddingBottom: 10,
     // backgroundColor: "#9963ea",
-
-    // borderWidth: 0.5,
     height: 50
-    // marginTop: "auto",
   },
   faveText: {
     textAlign: "center",
@@ -127,11 +119,22 @@ const styles = StyleSheet.create({
       ios: { fontFamily: "Montserrat" }
     }),
     flexDirection: "column-reverse"
-    // alignItems: "flex-end"
   },
 
   favebutton: {
-    borderRadius: 37.5
+    borderRadius: 37.5,
+    marginHorizontal: 55
+  },
+
+  heartIcon: {
+    color: "#cf392a",
+
+    marginVertical: 22
+  },
+  containerTitle: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "95%"
   }
 });
 
