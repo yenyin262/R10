@@ -39,7 +39,12 @@ class Sessions extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { isLoaded: false, favesButton: null, favSessionTitle: null };
+    this.state = {
+      isLoaded: false,
+      favesButton: null,
+      favSessionTitle: null,
+      isFav: false
+    };
   }
 
   // componentDidMount() {
@@ -103,12 +108,14 @@ class Sessions extends Component {
       removesFaves
     } = this.props;
 
+    const isFav = faveIds.includes(session.id);
+
     return (
       <ScrollView>
         <View>
           <View style={styles.containerTitle}>
             <Text style={styles.locationTitle}>{session.location}</Text>
-            {faveIds ? (
+            {isFav ? (
               <Icon name={favSessionTitle} size={22} style={styles.heartIcon} />
             ) : null}
           </View>
@@ -145,15 +152,11 @@ class Sessions extends Component {
             >
               <TouchableOpacity
                 onPress={() => {
-                  faveIds.includes(session.id)
-                    ? removesFaves(session.id)
-                    : addFaves(session.id);
+                  isFav ? removesFaves(session.id) : addFaves(session.id);
                 }}
               >
                 <Text style={styles.faveText}>
-                  {faveIds.includes(session.id)
-                    ? "Remove from Faves"
-                    : "Add to Faves"}
+                  {isFav ? "Remove from Faves" : "Add to Faves"}
                 </Text>
               </TouchableOpacity>
             </LinearGradient>
