@@ -11,92 +11,12 @@ import {
 import moment from "moment";
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
-
-favSessionTitle = Platform.select({
-  ios: "ios-heart",
-  android: "md-heart"
-});
-//<Icon name={favSessionTitle}/>
-// let fn;
-// let btnText;
-
-// if (listOfFaves.includes(session.id)) {
-//   fn = removesFaves;
-// } else {
-//   fn = addFaves;
-// }
-// let favSessionTitle;
-// if (listOfFaves.includes(session.id)) {
-//   favSessionTitle = Platform.select({
-//     ios: "ios-heart",
-//     android: "md-heart"
-//   });
-// } else {
-//   favSessionTitle = null;
-// }
+import PropTypes from "prop-types";
 
 class Sessions extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isLoaded: false,
-      favesButton: null,
-      favSessionTitle: null,
-      isFav: false
-    };
   }
-
-  // componentDidMount() {
-  //   const { session, addFaves, removesFaves, checkForFaves, faveIds } = this.props;
-  //   console.log;
-  //   console.log(this.state.favesButton, "favesBtn");
-  //   checkForFaves()
-  //     .then(listOfFaves => {
-  //       console.log(listOfFaves, "list");
-  //       console.log(session.id);
-  //       this.setState({
-  //         isLoaded: true,
-  //         favesButton: (
-  //           <View style={styles.favebuttonContainer}>
-  //             <LinearGradient
-  //               colors={["#cf392a", "#9963ea"]}
-  //               start={{ x: 0.0, y: 1.0 }}
-  //               end={{ x: 1.0, y: 0.0 }}
-  //               style={[
-  //                 StyleSheet.absoluteFill,
-  //                 { width: "65%" },
-  //                 styles.favebutton
-  //               ]}
-  //             >
-  //               <TouchableOpacity
-  //                 onPress={() => {
-  //                   listOfFaves.includes(session.id)
-  //                     ? removesFaves(session.id)
-  //                     : addFaves(session.id);
-  //                 }}
-  //               >
-  //                 <Text style={styles.faveText}>
-  //                   {listOfFaves.includes(session.id)
-  //                     ? "Remove from Faves"
-  //                     : "Add to Faves"}
-  //                 </Text>
-  //               </TouchableOpacity>
-  //             </LinearGradient>
-  //           </View>
-  //         ),
-  //         favSessionTitle: listOfFaves.includes(session.id) ? (
-  //           <Icon name={favSessionTitle} size={22} style={styles.heartIcon} />
-  //         ) : null
-  //       });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
-
-  // get rid of promise
-  // run the component check ran or delete btn
 
   render() {
     const {
@@ -110,13 +30,17 @@ class Sessions extends Component {
 
     const isFav = faveIds.includes(session.id);
 
+    const favSessionTitle = Platform.select({
+      ios: "ios-heart",
+      android: "md-heart"
+    });
     return (
       <ScrollView>
         <View>
           <View style={styles.containerTitle}>
             <Text style={styles.locationTitle}>{session.location}</Text>
             {isFav ? (
-              <Icon name={favSessionTitle} size={22} style={styles.heartIcon} />
+              <Icon name={favSessionTitle} size={22} style={styles.favIcon} />
             ) : null}
           </View>
           <Text style={styles.sessionTitle}>{session.title}</Text>
@@ -141,7 +65,7 @@ class Sessions extends Component {
 
           <View style={styles.favebuttonContainer}>
             <LinearGradient
-              colors={["#cf392a", "#9963ea"]}
+              colors={["#9963ea", "#8797D6"]}
               start={{ x: 0.0, y: 1.0 }}
               end={{ x: 1.0, y: 0.0 }}
               style={[
@@ -166,5 +90,14 @@ class Sessions extends Component {
     );
   }
 }
+
+// Sessions.propTypes = {
+//   session: PropTypes.Object.isRequired,
+//   speaker: PropTypes.Object.isRequired,
+//   navigation: PropTypes.Object,
+//   // faveIds: PropTypes.array.isRequired,
+//   addFaves: PropTypes.func,
+//   removesFaves: PropTypes.func
+// };
 
 export default Sessions;

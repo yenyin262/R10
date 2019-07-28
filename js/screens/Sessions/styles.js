@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     marginVertical: 13,
     paddingTop: 10,
     paddingBottom: 10,
-    // backgroundColor: "#9963ea",
     height: 50
   },
   faveText: {
@@ -126,9 +125,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 55
   },
 
-  heartIcon: {
+  favIcon: {
     color: "#cf392a",
-
     marginVertical: 22
   },
   containerTitle: {

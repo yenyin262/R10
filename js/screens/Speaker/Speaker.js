@@ -12,12 +12,11 @@ import {
 } from "react-native";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
+import PropTypes from "prop-types";
 
 // const { height, width } = Dimensions.get("window");
 
 const Speaker = ({ speaker }) => {
-  console.log(speaker, "at speaker");
-
   return (
     <ScrollView>
       <View style={styles.speakerView}>
@@ -26,7 +25,7 @@ const Speaker = ({ speaker }) => {
         <Text style={styles.speakerBio}>{speaker.bio}</Text>
         <View style={styles.readMorebuttonContainer}>
           <LinearGradient
-            colors={["#cf392a", "#9963ea"]}
+            colors={["#9963ea", "#8797D6"]}
             start={{ x: 0.0, y: 1.0 }}
             end={{ x: 1.0, y: 0.0 }}
             style={[
@@ -44,5 +43,9 @@ const Speaker = ({ speaker }) => {
     </ScrollView>
   );
 };
+
+// Speaker.propTypes = {
+//   speaker: PropTypes.Object.isRequired
+// };
 
 export default Speaker;
