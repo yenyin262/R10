@@ -13,11 +13,12 @@ class FavesProvider extends Component {
 
     this.state = {
       faveIds: [],
-      finalResult: []
+      finalResult: [],
+      test: true
     };
   }
   async componentDidMount() {
-    await this.getFavedSessionIds;
+    await this.getFavedSessionIds();
     const { finalResult } = this.state;
     this.setState({ faveIds: finalResult });
   }
@@ -27,7 +28,7 @@ class FavesProvider extends Component {
         var finalResultx = [];
         console.log(result, "results");
         for (const i of result) {
-          finalResultx[i[0]] = i[0];
+          finalResultx.push(i[0]);
         }
 
         this.setState({ faveIds: finalResultx });
@@ -59,11 +60,14 @@ class FavesProvider extends Component {
 
   async removeFaves(sessionId) {
     try {
-      const removedItem = await AsyncStorage.removeItem(sessionId);
-      return removedItem;
+      await AsyncStorage.removeItem(sessionId);
+      console.log("BANANAS ARE GOOD FOR YOU");
+
+      // return removedItem;
     } catch (error) {
       console.log(error);
     }
+    await this.getFavedSessionIds();
   }
 
   // getFavedSessionIds = async () => {
@@ -85,6 +89,7 @@ class FavesProvider extends Component {
     } catch (error) {
       console.log(error);
     }
+    await this.getFavedSessionIds();
   }
 
   render() {
@@ -97,7 +102,9 @@ class FavesProvider extends Component {
           // ...this.state},
           getFavedSessionIds: this.getFavedSessionIds.bind(this),
           addFaves: this.addFaves.bind(this),
-          removeFaves: this.removeFaves.bind(this)
+          removeFaves: this.removeFaves.bind(this),
+          faveIds: this.state.faveIds,
+          test: this.state.test
         }}
       >
         {this.props.children}
