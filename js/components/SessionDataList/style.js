@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   location: {
-    fontSize: 15,
-    marginTop: 8,
+    fontSize: 16,
+    marginVertical: 10,
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular"
@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
       ios: { fontFamily: "Montserrat" }
     }),
     color: "#999999",
-    marginLeft: 20,
-    marginBottom: 8
+    marginHorizontal: 20
   },
   title: {
     fontSize: 18,
@@ -34,7 +33,8 @@ const styles = StyleSheet.create({
       },
       ios: { fontFamily: "Montserrat", color: "black" }
     }),
-    marginLeft: 20
+
+    marginHorizontal: 20
   },
   time: {
     fontSize: 16,
@@ -50,6 +50,15 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 7,
     backgroundColor: "#e6e6e6"
+  },
+  favIcon: {
+    color: "#cf392a",
+    marginVertical: 9,
+    paddingRight: 20
+  },
+  locationContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 });
 

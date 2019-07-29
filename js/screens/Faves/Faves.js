@@ -1,24 +1,26 @@
 // expect data and display it
 import React from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View } from "react-native";
+import SessionDataList from "../../components/SessionDataList";
+import PropTypes from "prop-types";
+import styles from "../Sessions/styles";
 
-const Faves = ({ data }) => {
-  return (
-    <ScrollView>
-      {data.allConducts.map(({ title, description }) => {
-        return (
-          <View key={title}>
-            <View>
-              <Text>{title}</Text>
-            </View>
-            <View>
-              <Text>{description}</Text>
-            </View>
-          </View>
-        );
-      })}
-    </ScrollView>
+const Faves = ({ data, faveIds }) => {
+  return faveIds.length > 0 ? (
+    <View>
+      <SessionDataList
+        data={data.allSessions}
+        // favCheck={favCheck}
+        faveIds={faveIds}
+      />
+    </View>
+  ) : (
+    <View>
+      <Text style={styles.favesText}> You have no favorite sessions. </Text>
+    </View>
   );
 };
-
+// Faves.propTypes = {
+//   data: PropTypes.array.isRequired
+// };
 export default Faves;

@@ -1,13 +1,19 @@
-// expect data and display it
 import React from "react";
 import { View } from "react-native";
 import SessionDataList from "../../components/SessionDataList";
-const Schedule = ({ data }) => {
+import PropTypes from "prop-types";
+
+const Schedule = ({ data, faveIds }) => {
   return (
     <View>
-      <SessionDataList data={data.allSessions} />
+      <SessionDataList data={data.allSessions} faveIds={faveIds} />
     </View>
   );
 };
+
+// Schedule.propTypes = {
+//   data: PropTypes.Object.isRequired,
+// faveIds: PropTypes.Array.isRequired
+// };
 
 export default Schedule;

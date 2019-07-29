@@ -3,11 +3,10 @@
 // props to about container
 
 import React, { Component } from "react";
-import { View, Text, ActivityIndicator, Platform } from "react-native";
+import { View, Text, Platform } from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Sessions from "./Sessions";
-import { colors } from "../../config/styles";
 import FavesContext from "../../context/FavesContext";
 import LoaderScreen from "../../components/LoadingScreen";
 
@@ -26,23 +25,6 @@ const QUERY_SPEAKER = gql`
 `;
 
 class SessionsContainer extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     faveIds: []
-  //   };
-  // }
-
-  // async componentDidMount() {
-  //   try {
-  //     const myFaves = await this.context.getFavedSessionIds();
-  //    return myFaves
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
   static navigationOptions = {
     title: "Session",
     headerTitleStyle: {
@@ -62,6 +44,7 @@ class SessionsContainer extends Component {
 
     // navigation name of object and navigate directs us to the directed route
     const session = navigation.getParam("Session");
+    console.log(`context test value is ${JSON.stringify(this.context)}`);
 
     return (
       <View>
@@ -82,6 +65,7 @@ class SessionsContainer extends Component {
                 removesFaves={this.context.removeFaves}
                 checkForFaves={this.context.getFavedSessionIds}
                 navigation={this.props.navigation}
+                faveIds={this.context.faveIds}
               />
               //   )}
               // </FavesContext.Consumer>
@@ -93,4 +77,7 @@ class SessionsContainer extends Component {
   }
 }
 
+// SessionsContainer.propTypes = {
+//   navigation: PropTypes.Object.isRequired
+// };
 export default SessionsContainer;

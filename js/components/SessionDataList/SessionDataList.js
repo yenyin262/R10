@@ -4,26 +4,26 @@ import styles from "./style";
 import { withNavigation } from "react-navigation";
 import { formatSessionData } from "../../lib/dataFormatForSchedule";
 import moment from "moment";
-// import Icon from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/Ionicons";
 
 class SessionDataList extends Component {
   constructor(props) {
     super(props);
   }
   render() {
-    const { data, navigation } = this.props;
-    console.log(navigation, "navigation");
+    const { data, navigation, faveIds } = this.props;
 
     const formatSchedule = formatSessionData(data);
-
-    console.log(formatSchedule, "format");
+    const favSessionTitle = Platform.select({
+      ios: "ios-heart",
+      android: "md-heart"
+    });
     return (
       <View>
         <SectionList
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => {
-                console.log(navigation, "nav");
                 navigation.navigate("Session", { Session: item });
               }}
             >
@@ -33,8 +33,16 @@ class SessionDataList extends Component {
                     <Text style={styles.title}>{item.title}</Text>
                   </View>
                   <View>
-                    <Text style={styles.location}>{item.location}</Text>
-                    {/* <Icon name="ios-heart-empty" /> */}
+                    <View style={styles.locationContainer}>
+                      <Text style={styles.location}>{item.location}</Text>
+                      {faveIds.includes(item.id) ? (
+                        <Icon
+                          name={favSessionTitle}
+                          size={18}
+                          style={styles.favIcon}
+                        />
+                      ) : null}
+                    </View>
                   </View>
                 </View>
               </View>
@@ -45,7 +53,6 @@ class SessionDataList extends Component {
           renderSectionHeader={({ section: { title } }) => (
             <Text style={styles.time}>{moment(title).format("LT")}</Text>
             // this title is the section title each data belongs to that title
-            // <Text>{title}</Text>
           )}
           keyExtractor={data => "" + data.id}
         />
@@ -53,5 +60,10 @@ class SessionDataList extends Component {
     );
   }
 }
+
+// SessionDataList.propTypes = {
+//   data: PropTypes.array.isRequired,
+//   navigation: PropTypes.func
+// };
 
 export default withNavigation(SessionDataList);
