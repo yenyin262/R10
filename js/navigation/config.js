@@ -16,14 +16,26 @@ const GradientHeader = props => (
   </View>
 );
 
-const AndroidMenu = ({ navigation }) => (
-  <TouchableOpacity
-    style={{ marginHorizontal: 20 }}
-    onPress={() => navigation.openDrawer()}
-  >
-    <Icon name="md-menu" size={25} color="white" />
-  </TouchableOpacity>
-);
+const AndroidMenu = ({ navigation }) => {
+  const { routeName } = navigation.state;
+  return routeName === "Session" ? (
+    <TouchableOpacity
+      style={{ marginHorizontal: 20 }}
+      onPress={() => navigation.goBack()}
+    >
+      <View>
+        <Icon name="md-arrow-round-back" size={26} color="white" />
+      </View>
+    </TouchableOpacity>
+  ) : (
+    <TouchableOpacity
+      style={{ marginHorizontal: 20 }}
+      onPress={() => navigation.openDrawer()}
+    >
+      <Icon name="md-menu" size={26} color="white" />
+    </TouchableOpacity>
+  );
+};
 export const sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   header: props => <GradientHeader {...props} />,
