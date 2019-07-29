@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   locationTitle: {
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     marginVertical: 22,
     color: "#999999",
     fontSize: 20,
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     })
   },
   sessionTitle: {
-    fontSize: 35,
+    fontSize: 32,
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
       },
       ios: { fontFamily: "Montserrat", color: "black" }
     }),
-    marginHorizontal: 10
+    marginHorizontal: 20
   },
 
   time: {
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
       ios: { fontFamily: "Montserrat", fontSize: 20 }
     }),
     marginTop: 20,
-    marginHorizontal: 10
+    marginHorizontal: 20
   },
   description: {
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     marginVertical: 20,
     ...Platform.select({
       android: {
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     marginVertical: 15,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     color: "#999999",
     fontSize: 20,
     ...Platform.select({

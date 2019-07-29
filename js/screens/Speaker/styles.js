@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     backgroundColor: "white",
     alignSelf: "center",
-    borderRadius: 30
+    borderRadius: 10
   },
   subText: {
     marginHorizontal: 50,

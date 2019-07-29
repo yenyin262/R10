@@ -14,8 +14,6 @@ import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import PropTypes from "prop-types";
 
-// const { height, width } = Dimensions.get("window");
-
 const Speaker = ({ speaker }) => {
   return (
     <ScrollView>
@@ -30,12 +28,12 @@ const Speaker = ({ speaker }) => {
             end={{ x: 1.0, y: 0.0 }}
             style={[
               StyleSheet.absoluteFill,
-              { width: "80%" },
+              { width: "82%" },
               styles.readMorebutton
             ]}
           >
             <TouchableOpacity onPress={() => Linking.openURL(speaker.url)}>
-              <Text style={styles.readMoreText}> Read more on Wikipedia </Text>
+              <Text style={styles.readMoreText}> Read More on Wikipedia </Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>
