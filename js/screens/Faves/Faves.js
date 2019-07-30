@@ -1,6 +1,6 @@
 // expect data and display it
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import SessionDataList from "../../components/SessionDataList";
 import PropTypes from "prop-types";
 import styles from "../Sessions/styles";
@@ -8,11 +8,7 @@ import styles from "../Sessions/styles";
 const Faves = ({ data, faveIds }) => {
   return faveIds.length > 0 ? (
     <View>
-      <SessionDataList
-        data={data.allSessions}
-        // favCheck={favCheck}
-        faveIds={faveIds}
-      />
+      <SessionDataList data={data} faveIds={faveIds} />
     </View>
   ) : (
     <View>
@@ -20,7 +16,8 @@ const Faves = ({ data, faveIds }) => {
     </View>
   );
 };
-// Faves.propTypes = {
-//   data: PropTypes.array.isRequired
-// };
+Faves.propTypes = {
+  data: PropTypes.array.isRequired,
+  faveIds: PropTypes.array.isRequired
+};
 export default Faves;

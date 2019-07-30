@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 class SpeakerContainer extends Component {
   render() {
     const { navigation } = this.props;
+
     const closeIcon = Platform.select({
       ios: "ios-close",
       android: "md-close"
@@ -30,8 +31,8 @@ class SpeakerContainer extends Component {
   }
 }
 
-// SpeakerContainer.propTypes = {
-//   navigation: PropTypes.Object.isRequired
-// };
+SpeakerContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
 
 export default SpeakerContainer;

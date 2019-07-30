@@ -83,13 +83,13 @@ const Sessions = ({
   );
 };
 
-// Sessions.propTypes = {
-//   session: PropTypes.Object.isRequired,
-//   speaker: PropTypes.Object.isRequired,
-//   navigation: PropTypes.Object,
-//   // faveIds: PropTypes.array.isRequired,
-//   addFaves: PropTypes.func,
-//   removesFaves: PropTypes.func
-// };
+Sessions.propTypes = {
+  session: PropTypes.object.isRequired,
+  speaker: PropTypes.object.isRequired,
+  navigation: PropTypes.object,
+  faveIds: PropTypes.array.isRequired,
+  addFaves: PropTypes.func,
+  removesFaves: PropTypes.func
+};
 
 export default Sessions;

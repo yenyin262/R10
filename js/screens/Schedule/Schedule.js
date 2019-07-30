@@ -11,9 +11,9 @@ const Schedule = ({ data, faveIds }) => {
   );
 };
 
-// Schedule.propTypes = {
-//   data: PropTypes.Object.isRequired,
-// faveIds: PropTypes.Array.isRequired
-// };
+Schedule.propTypes = {
+  data: PropTypes.object.isRequired,
+  faveIds: PropTypes.array.isRequired
+};
 
 export default Schedule;

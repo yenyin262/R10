@@ -9,6 +9,7 @@ import { gql } from "apollo-boost";
 import Sessions from "./Sessions";
 import FavesContext from "../../context/FavesContext";
 import LoaderScreen from "../../components/LoadingScreen";
+import PropTypes from "prop-types";
 
 const QUERY_SPEAKER = gql`
   query getSpeaker($id: ID!) {
@@ -77,7 +78,7 @@ class SessionsContainer extends Component {
   }
 }
 
-// SessionsContainer.propTypes = {
-//   navigation: PropTypes.Object.isRequired
-// };
+SessionsContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
 export default SessionsContainer;

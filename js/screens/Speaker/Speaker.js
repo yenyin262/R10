@@ -42,8 +42,8 @@ const Speaker = ({ speaker }) => {
   );
 };
 
-// Speaker.propTypes = {
-//   speaker: PropTypes.Object.isRequired
-// };
+Speaker.propTypes = {
+  speaker: PropTypes.object.isRequired
+};
 
 export default Speaker;
