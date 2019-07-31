@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors, fonts } from "../../config/styles";
 
 const styles = StyleSheet.create({
   indicator: {
@@ -9,83 +10,52 @@ const styles = StyleSheet.create({
   image: {
     height: 60,
     width: 250,
-    marginLeft: 50,
+    marginLeft: "auto",
+    marginRight: "auto",
     marginTop: 20
   },
 
   lineSeparator: {
     marginTop: 30,
-    borderBottomColor: "#e6e6e6",
+    borderBottomColor: colors.LightGrey,
     borderBottomWidth: 1,
     marginHorizontal: 10,
     width: "90%"
   },
 
   header: {
-    fontSize: 30,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        color: colors.MediumGrey,
+        fontSize: 28,
+        marginBottom: 10
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: {
+        fontFamily: "Montserrat-light",
+        fontWeight: "bold",
+        fontSize: 30,
+        marginBottom: 20
+      }
     }),
     margin: 15,
-    marginBottom: 20,
+
     marginTop: 10
   },
   aboutText: {
     fontSize: 17.5,
     margin: 18,
-    fontWeight: "100",
+
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        color: colors.MediumGrey
+        // lineHeight: 18
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: "Montserrat-light", fontWeight: "100", lineHeight: 25 }
     }),
-    lineHeight: 25,
+
     marginTop: 15
-  },
-  aboutTitle: {
-    color: "#9963ea",
-    fontWeight: "500",
-    fontSize: 18,
-    marginVertical: 10,
-    paddingLeft: 2,
-    ...Platform.select({
-      android: {
-        fontFamily: "Montserrat-Regular"
-      },
-      ios: { fontFamily: "Montserrat" }
-    })
-  },
-  containerText: {
-    flexDirection: "row"
-  },
-  add: {
-    fontSize: 20,
-    marginVertical: 8,
-    color: "#9963ea",
-    ...Platform.select({
-      android: {
-        fontFamily: "Montserrat-Regular"
-      },
-      ios: { fontFamily: "Montserrat" }
-    }),
-    marginHorizontal: 5,
-    textAlign: "justify"
-  },
-  description: {
-    fontSize: 17.5,
-    ...Platform.select({
-      android: {
-        fontFamily: "Montserrat-Regular"
-      },
-      ios: { fontFamily: "Montserrat" }
-    }),
-    lineHeight: 25,
-    fontWeight: "100",
-    marginHorizontal: 15
   }
 });
 

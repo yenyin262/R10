@@ -1,7 +1,8 @@
-// expect data and display it
 import React from "react";
 import { View, Text, ScrollView, Image } from "react-native";
 import styles from "./styles";
+import PropTypes from "prop-types";
+import CodeofConduct from "../../components/CodeofConduct";
 
 const About = ({ data }) => {
   return (
@@ -29,23 +30,16 @@ const About = ({ data }) => {
           <Text style={styles.header}>Code of Conduct</Text>
         </View>
       </View>
-      {data.allConducts.map(({ id, title, description }) => {
-        return (
-          <View key={id}>
-            <View style={styles.containerText}>
-              <Text style={styles.add}> - </Text>
-              <Text style={styles.aboutTitle}> {title}</Text>
-            </View>
-            <View>
-              <Text style={styles.description}>{description}</Text>
-            </View>
-          </View>
-        );
-      })}
+      {data.allConducts.map(data => (
+        <CodeofConduct key={data.id} data={data} />
+      ))}
       <View style={styles.lineSeparator} />
-      <Text style={styles.aboutText}> © RED ACADEMY 2017</Text>
+      <Text style={styles.aboutText}> © RED Academy 2017</Text>
     </ScrollView>
   );
 };
 
+About.propTypes = {
+  data: PropTypes.object.isRequired
+};
 export default About;

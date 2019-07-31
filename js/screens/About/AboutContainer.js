@@ -4,6 +4,7 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import About from "./About";
 import LoaderScreen from "../../components/LoadingScreen";
+import { colors, fonts } from "../../config/styles";
 
 const QUERY_ABOUT = gql`
   query {
@@ -22,7 +23,7 @@ class AboutContainer extends Component {
       fontSize: 24,
       ...Platform.select({
         android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
-        ios: { marginBottom: 10, fontFamily: "Montserrat" }
+        ios: { marginBottom: 10, fontFamily: fonts.baseFont }
       })
     }
   };
