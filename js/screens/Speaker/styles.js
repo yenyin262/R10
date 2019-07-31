@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
+import { colors, fonts } from "../../config/styles";
 
 const styles = StyleSheet.create({
   speakerView: {
     height: "98%",
     width: "90%",
     marginHorizontal: 15,
-    marginTop: 25,
+    marginTop: 10,
     backgroundColor: "white",
     alignSelf: "center",
     borderRadius: 10
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: "Montserrat-Regular"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: fonts.baseFont }
     }),
     marginBottom: 20
   },
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: "Montserrat-Regular"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: fonts.baseFont }
     }),
     fontWeight: "200",
     lineHeight: 30,
@@ -44,17 +45,16 @@ const styles = StyleSheet.create({
   },
 
   readMorebuttonContainer: {
-    marginTop: 25,
-    paddingTop: 10,
-    paddingBottom: 10,
-    height: 50
+    paddingRight: 15,
+    height: 50,
+    width: 350,
+    marginVertical: 25
   },
   aboutSpeakerText: {
-    textAlign: "center",
+    textAlign: "justify",
     paddingLeft: 10,
     paddingRight: 10,
     marginTop: 10,
-
     fontSize: 19,
     fontWeight: "400",
     color: "white",
@@ -62,19 +62,19 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: "Montserrat-Regular"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: fonts.baseFont }
     }),
     flexDirection: "column-reverse"
   },
 
   readMorebutton: {
     borderRadius: 40,
-    marginLeft: 40
+    marginLeft: 30
   },
   readMoreText: {
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10,
+    paddingRight: 20,
     marginTop: 10,
     paddingTop: 5,
     fontSize: 20,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: "Montserrat-Regular"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: fonts.baseFont }
     }),
     flexDirection: "column-reverse"
   },

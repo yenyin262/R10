@@ -7,7 +7,6 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  Dimensions,
   Linking
 } from "react-native";
 import styles from "./styles";
