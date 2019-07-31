@@ -5,3 +5,9 @@ export const colors = {
   Purple: "#9963ea",
   Red: "#cf392a"
 };
+
+export const fonts = {
+  baseFont: "Montserrat",
+  baseFontLight: "Montserrat-light",
+  baseFontRegular: "Montserrat-Regular"
+};

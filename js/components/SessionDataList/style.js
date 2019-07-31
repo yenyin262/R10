@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors, fonts } from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
     marginBottom: 7
   },
   separator: {
-    borderBottomColor: "#e6e6e6",
+    borderBottomColor: colors.LightGrey,
     borderBottomWidth: 1
   },
   location: {
@@ -14,11 +15,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: fonts.baseFontRegular,
+        // color: colors.LightGrey,
+        color: colors.MediumGrey,
+        fontWeight: "900"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: fonts.baseFont, color: colors.MediumGrey }
     }),
-    color: "#999999",
     marginHorizontal: 20
   },
   title: {
@@ -28,10 +31,10 @@ const styles = StyleSheet.create({
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
-        color: "#999999",
-        fontWeight: "400"
+        color: colors.MediumGrey,
+        fontWeight: "600"
       },
-      ios: { fontFamily: "Montserrat", color: "black" }
+      ios: { fontFamily: fonts.baseFont, color: "black" }
     }),
 
     marginHorizontal: 20
@@ -42,17 +45,18 @@ const styles = StyleSheet.create({
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
-        color: "#999999"
+        color: colors.MediumGrey,
+        fontWeight: "900"
       },
-      ios: { fontFamily: "Montserrat", color: "black" }
+      ios: { fontFamily: fonts.baseFont, color: "black" }
     }),
 
     padding: 20,
     paddingBottom: 7,
-    backgroundColor: "#e6e6e6"
+    backgroundColor: colors.LightGrey
   },
   favIcon: {
-    color: "#cf392a",
+    color: colors.Red,
     marginVertical: 9,
     paddingRight: 20
   },

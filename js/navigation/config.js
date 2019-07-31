@@ -3,11 +3,11 @@ import { StyleSheet, View, TouchableOpacity, Platform } from "react-native";
 import { Header } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
-
+import { colors, fonts } from "../config/styles";
 const GradientHeader = props => (
   <View style={{ backgroundColor: "white", overflow: "hidden" }}>
     <LinearGradient
-      colors={["#cf392a", "#9963ea"]}
+      colors={[colors.Red, "#9963ea"]}
       start={{ x: 0.0, y: 1.0 }}
       end={{ x: 1.0, y: 0.0 }}
       style={[StyleSheet.absoluteFill, { height: 120, width: "100%" }]}
@@ -45,7 +45,7 @@ export const sharedNavigationOptions = navigation => ({
 
   headerStyle: {
     backgroundColor: "transparent",
-    fontFamily: "Montserrat",
+    fontFamily: fonts.baseFont,
     color: "white"
   }
 });

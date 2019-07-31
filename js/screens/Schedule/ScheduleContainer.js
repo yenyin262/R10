@@ -1,21 +1,12 @@
-// create query
-// return about component
-// props to about container
-
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  Platform
-} from "react-native";
+import { View, Text, Platform } from "react-native";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import Schedule from "./Schedule";
-import { colors } from "../../config/styles";
+import { fonts } from "../../config/styles";
 import FavesContext from "../../context/FavesContext";
 import LoaderScreen from "../../components/LoadingScreen";
+import PropTypes from "prop-types";
 
 const QUERY_SCHEDULE = gql`
   query {
@@ -35,23 +26,14 @@ class ScheduleContainer extends Component {
       color: "white",
       fontSize: 24,
       ...Platform.select({
-        android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
-        ios: { marginBottom: 10, fontFamily: "Montserrat" }
+        android: { marginVertical: 10, fontFamily: fonts.baseFontRegular },
+        ios: { marginBottom: 10, fontFamily: fonts.baseFont }
       })
     }
   };
 
   static contextType = FavesContext;
 
-  // async componentDidMount() {
-  //   this.getFavedSessionsIds;
-  //   try {
-  //     const myFaves = await this.context.getFavedSessionIds();
-  //    return myFaves
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
   render() {
     return (
       <View>
@@ -60,21 +42,12 @@ class ScheduleContainer extends Component {
             if (loading) return <LoaderScreen />;
 
             if (error) return <Text> Error :(</Text>;
-            return <Schedule data={data} />;
+            return <Schedule data={data} faveIds={this.context.faveIds} />;
           }}
         </Query>
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  indicator: {
-    width: 200,
-    height: 200
-  }
-});
 
-ScheduleContainer.propTypes = {
-  // classes: PropTypes.object.isRequired
-};
 export default ScheduleContainer;

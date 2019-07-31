@@ -10,7 +10,7 @@ import SessionScreen from "../screens/Sessions";
 import ScheduleScreen from "../screens/Schedule";
 import MapScreen from "../screens/Map";
 import FavesScreen from "../screens/Faves";
-import { colors } from "../config/styles";
+import { colors, fonts } from "../config/styles";
 // import NativeAppEventEmitter from "react-native";
 
 // takes 2 objects = param
@@ -102,7 +102,7 @@ const TabNavigator = createBottomTabNavigator(
 
       labelStyle: {
         fontSize: 14,
-        fontFamily: "Montserrat",
+        fontFamily: fonts.baseFont,
         color: "white"
       },
 
