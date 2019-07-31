@@ -5,6 +5,7 @@ import { gql } from "apollo-boost";
 import Faves from "./Faves";
 import LoaderScreen from "../../components/LoadingScreen";
 import FavesContext from "../../context/FavesContext";
+import { colors, fonts } from "../../config/styles";
 
 const QUERY_SESSIONS = gql`
   query {
@@ -26,7 +27,7 @@ class FavesContainer extends Component {
       fontSize: 24,
       ...Platform.select({
         android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
-        ios: { marginBottom: 10, fontFamily: "Montserrat" }
+        ios: { marginBottom: 10, fontFamily: fonts.baseFont }
       })
     }
   };

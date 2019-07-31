@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import { colors, fonts } from "../../config/styles";
 
 const styles = StyleSheet.create({
   locationTitle: {
     marginHorizontal: 20,
     marginVertical: 22,
-    color: "#999999",
+    color: colors.MediumGrey,
     fontSize: 20,
     ...Platform.select({
       android: {
@@ -18,7 +19,8 @@ const styles = StyleSheet.create({
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
-        color: "#999999"
+        color: colors.MediumGrey,
+        fontWeight: "300"
       },
       ios: { fontFamily: "Montserrat", color: "black" }
     }),
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
   },
 
   time: {
-    color: "#cf392a",
+    color: colors.Red,
     fontWeight: "600",
     ...Platform.select({
       android: {
@@ -41,21 +43,25 @@ const styles = StyleSheet.create({
   description: {
     marginHorizontal: 20,
     marginVertical: 20,
+    // fontFamily: "Montserrat-light",
+
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
-        fontWeight: "light"
+        color: colors.MediumGrey,
+        fontFamily: "Montserrat",
+        fontSize: 20,
+        lineHeight: 28
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: "Montserrat", fontSize: 22, lineHeight: 32 }
     }),
-    fontSize: 22,
-    lineHeight: 32,
+    // fontSize: 22,
+
     fontWeight: "200"
   },
   subText: {
     marginVertical: 15,
     marginHorizontal: 20,
-    color: "#999999",
+    color: colors.MediumGrey,
     fontSize: 20,
     ...Platform.select({
       android: {
@@ -91,7 +97,7 @@ const styles = StyleSheet.create({
   lineSeparator: {
     width: "90%",
     alignSelf: "center",
-    borderBottomColor: "#e6e6e6",
+    borderBottomColor: colors.LightGrey,
     borderBottomWidth: 1,
     marginVertical: 15
   },
@@ -107,7 +113,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     marginTop: 10,
-    paddingTop: 5,
+    // paddingTop: 5,
     fontSize: 20,
     fontWeight: "400",
     color: "white",
@@ -122,11 +128,13 @@ const styles = StyleSheet.create({
 
   favebutton: {
     borderRadius: 37.5,
-    marginHorizontal: 55
+    marginHorizontal: 55,
+    marginBottom: "auto",
+    marginTop: "auto"
   },
 
   favIcon: {
-    color: "#cf392a",
+    color: colors.Red,
     marginVertical: 22
   },
   containerTitle: {
