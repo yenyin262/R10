@@ -1,19 +1,7 @@
-// create query
-// return about component
-// props to about container
-
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  Platform
-} from "react-native";
-import { Query } from "react-apollo";
-import { gql } from "apollo-boost";
+import { Text, Platform } from "react-native";
 import Map from "./Map";
-import { colors } from "../../config/styles";
+import { colors, fonts } from "../../config/styles";
 
 class MapContainer extends Component {
   static navigationOptions = {
@@ -23,16 +11,15 @@ class MapContainer extends Component {
       fontSize: 24,
       ...Platform.select({
         android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
-        ios: { marginBottom: 10, fontFamily: "Montserrat" }
+        ios: { marginBottom: 10, fontFamily: fonts.baseFont }
       })
     }
   };
   render() {
-    return (
-      <View>
-        <Text>Map</Text>
-      </View>
-    );
+    return Platform.select({
+      ios: <Map />,
+      android: <Text>Maps currently not available</Text>
+    });
   }
 }
 
