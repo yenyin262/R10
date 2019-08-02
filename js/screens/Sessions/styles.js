@@ -9,9 +9,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        fontSize: 18
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: "Montserrat", fontSize: 20 }
     })
   },
   sessionTitle: {
@@ -43,20 +44,16 @@ const styles = StyleSheet.create({
   description: {
     marginHorizontal: 20,
     marginVertical: 20,
-    // fontFamily: "Montserrat-light",
-
+    fontSize: 22,
+    fontFamily: "Montserrat-light",
     ...Platform.select({
       android: {
-        color: colors.MediumGrey,
-        fontFamily: "Montserrat",
-        fontSize: 20,
-        lineHeight: 28
+        color: "black",
+        lineHeight: 28,
+        fontWeight: "100"
       },
-      ios: { fontFamily: "Montserrat", fontSize: 22, lineHeight: 32 }
-    }),
-    // fontSize: 22,
-
-    fontWeight: "200"
+      ios: { fontFamily: "Montserrat", lineHeight: 32, fontWeight: "200" }
+    })
   },
   subText: {
     marginVertical: 15,
@@ -88,7 +85,9 @@ const styles = StyleSheet.create({
 
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        color: colors.MediumGrey,
+        fontWeight: "900"
       },
       ios: { fontFamily: "Montserrat" }
     }),
@@ -106,7 +105,10 @@ const styles = StyleSheet.create({
     marginVertical: 13,
     paddingTop: 10,
     paddingBottom: 10,
-    height: 50
+    height: 50,
+    width: "65%",
+    marginLeft: "auto",
+    marginRight: "auto"
   },
   faveText: {
     textAlign: "center",
@@ -121,14 +123,17 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: "Montserrat-Regular"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: {
+        fontFamily: "Montserrat-light"
+      }
     }),
     flexDirection: "column-reverse"
   },
 
   favebutton: {
     borderRadius: 37.5,
-    marginHorizontal: 55,
+    marginLeft: "auto",
+    marginRight: "auto",
     marginBottom: "auto",
     marginTop: "auto"
   },

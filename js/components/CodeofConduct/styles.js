@@ -20,33 +20,45 @@ const styles = StyleSheet.create({
   },
   aboutTitle: {
     color: "#9963ea",
+    marginLeft: 5,
     fontWeight: "500",
-
-    // paddingLeft: 2,
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
-        fontSize: 17,
+        fontSize: 18,
         marginVertical: 10,
         width: "96%",
         marginLeft: 10,
-        marginHorizontal: 12
+        marginHorizontal: 2,
+        flex: 1,
+        flexWrap: "wrap"
       },
-      ios: { fontFamily: "Montserrat-light", fontWeight: "bold", fontSize: 18 }
+      ios: {
+        fontFamily: "Montserrat-light",
+        fontWeight: "bold",
+        fontSize: 18,
+        marginTop: 10
+      }
     })
   },
   add: {
     fontSize: 20,
-    marginVertical: 8,
+    fontWeight: "500",
     color: "#9963ea",
+    marginLeft: 20,
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
-        // marginHorizontal: 10
+
         textAlign: "leftAlign",
-        marginLeft: 20
+        marginVertical: 8,
+        marginBottom: 20
       },
-      ios: { fontFamily: fonts.baseFont, marginHorizontal: 5 }
+      ios: {
+        fontFamily: fonts.baseFont,
+        marginTop: 10,
+        marginBottom: 20
+      }
     }),
 
     textAlign: "justify"

@@ -34,12 +34,10 @@ const styles = StyleSheet.create({
       ios: {
         fontFamily: "Montserrat-light",
         fontWeight: "bold",
-        fontSize: 30,
-        marginBottom: 20
+        fontSize: 30
       }
     }),
     margin: 15,
-
     marginTop: 10
   },
   aboutText: {
@@ -50,7 +48,6 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: "Montserrat-Regular",
         color: colors.MediumGrey
-        // lineHeight: 18
       },
       ios: { fontFamily: "Montserrat-light", fontWeight: "100", lineHeight: 25 }
     }),
