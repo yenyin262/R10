@@ -7,7 +7,7 @@ import { colors, fonts } from "../config/styles";
 const GradientHeader = props => (
   <View style={{ backgroundColor: "white", overflow: "hidden" }}>
     <LinearGradient
-      colors={[colors.Red, "#9963ea"]}
+      colors={[colors.Red, colors.Purple]}
       start={{ x: 0.0, y: 1.0 }}
       end={{ x: 1.0, y: 0.0 }}
       style={[StyleSheet.absoluteFill, { height: 120, width: "100%" }]}

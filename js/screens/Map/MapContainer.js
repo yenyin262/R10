@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Text, Platform } from "react-native";
 import Map from "./Map";
-import { colors, fonts } from "../../config/styles";
+import { fonts } from "../../config/styles";
+import styles from "./styles";
+
+const mapOS = Platform.select({
+  ios: <Map />,
+  android: <Text style={styles.mapText}>Maps currently not available</Text>
+});
 
 class MapContainer extends Component {
   static navigationOptions = {
@@ -16,10 +22,7 @@ class MapContainer extends Component {
     }
   };
   render() {
-    return Platform.select({
-      ios: <Map />,
-      android: <Text>Maps currently not available</Text>
-    });
+    return mapOS;
   }
 }
 

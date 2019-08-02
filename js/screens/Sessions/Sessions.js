@@ -12,6 +12,7 @@ import moment from "moment";
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
 import PropTypes from "prop-types";
+import { colors } from "../../config/styles";
 
 const Sessions = ({
   session,
@@ -58,7 +59,7 @@ const Sessions = ({
 
         <View style={styles.favebuttonContainer}>
           <LinearGradient
-            colors={["#9963ea", "#8797D6"]}
+            colors={[colors.Purple, colors.Blue]}
             start={{ x: 0.0, y: 1.0 }}
             end={{ x: 1.0, y: 0.0 }}
             style={[StyleSheet.absoluteFill, styles.favebutton]}

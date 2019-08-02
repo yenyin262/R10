@@ -12,6 +12,7 @@ import {
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import PropTypes from "prop-types";
+import { colors } from "../../config/styles";
 
 const Speaker = ({ speaker }) => {
   return (
@@ -22,7 +23,7 @@ const Speaker = ({ speaker }) => {
         <Text style={styles.speakerBio}>{speaker.bio}</Text>
         <View style={styles.readMorebuttonContainer}>
           <LinearGradient
-            colors={["#9963ea", "#8797D6"]}
+            colors={[colors.Purple, colors.Blue]}
             start={{ x: 0.0, y: 1.0 }}
             end={{ x: 1.0, y: 0.0 }}
             style={[StyleSheet.absoluteFill, styles.readMorebutton]}

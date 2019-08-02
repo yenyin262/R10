@@ -6,20 +6,20 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 17.5,
-    fontFamily: "Montserrat-light",
+    fontFamily: fonts.baseFont,
     ...Platform.select({
       android: {
         color: colors.MediumGrey,
         fontWeight: "400"
-      },
-      ios: { color: "black" }
+      }
+      // ios: { color: "black" }
     }),
     lineHeight: 25,
     fontWeight: "100",
     marginHorizontal: 15
   },
   aboutTitle: {
-    color: "#9963ea",
+    color: colors.Purple,
     marginLeft: 5,
     fontWeight: "500",
     ...Platform.select({
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         flexWrap: "wrap"
       },
       ios: {
-        fontFamily: "Montserrat-light",
+        fontFamily: fonts.baseFont,
         fontWeight: "bold",
         fontSize: 18,
         marginTop: 10
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   add: {
     fontSize: 20,
     fontWeight: "500",
-    color: "#9963ea",
+    color: colors.Purple,
     marginLeft: 20,
     ...Platform.select({
       android: {

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
       },
       ios: {
-        fontFamily: "Montserrat-light",
+        fontFamily: fonts.baseFont,
         fontWeight: "bold",
         fontSize: 30
       }
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Regular",
         color: colors.MediumGrey
       },
-      ios: { fontFamily: "Montserrat-light", fontWeight: "100", lineHeight: 25 }
+      ios: { fontFamily: fonts.baseFont, fontWeight: "100", lineHeight: 25 }
     }),
 
     marginTop: 15

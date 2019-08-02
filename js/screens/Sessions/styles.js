@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Regular",
         fontSize: 18
       },
-      ios: { fontFamily: "Montserrat", fontSize: 20 }
+      ios: { fontFamily: fonts.baseFont, fontSize: 20, fontWeight: "500" }
     })
   },
   sessionTitle: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         color: colors.MediumGrey,
         fontWeight: "300"
       },
-      ios: { fontFamily: "Montserrat", color: "black" }
+      ios: { fontFamily: fonts.baseFont, fontWeight: "500" }
     }),
     marginHorizontal: 20
   },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Regular",
         fontSize: 18
       },
-      ios: { fontFamily: "Montserrat", fontSize: 20 }
+      ios: { fontFamily: fonts.baseFont, fontSize: 20 }
     }),
     marginTop: 20,
     marginHorizontal: 20
@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 20,
     fontSize: 22,
-    fontFamily: "Montserrat-light",
+    fontFamily: fonts.baseFont,
     ...Platform.select({
       android: {
         color: "black",
         lineHeight: 28,
         fontWeight: "100"
       },
-      ios: { fontFamily: "Montserrat", lineHeight: 32, fontWeight: "200" }
+      ios: { fontFamily: fonts.baseFont, lineHeight: 32, fontWeight: "200" }
     })
   },
   subText: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: "Montserrat-Regular"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: fonts.baseFont, fontWeight: "500" }
     }),
     marginBottom: 20
   },
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         color: colors.MediumGrey,
         fontWeight: "900"
       },
-      ios: { fontFamily: "Montserrat" }
+      ios: { fontFamily: fonts.baseFont, fontWeight: "500" }
     }),
     paddingHorizontal: 5
   },
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Regular"
       },
       ios: {
-        fontFamily: "Montserrat-light"
+        fontFamily: fonts.baseFont
       }
     })
   },

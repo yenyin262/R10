@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         width: "100%",
         textAlign: "center"
       },
-      ios: { fontFamily: "Montserrat-light" }
+      ios: { fontFamily: fonts.baseFont }
     })
   },
   modal: {
