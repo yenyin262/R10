@@ -2,6 +2,16 @@ import { StyleSheet } from "react-native";
 import { colors, fonts } from "../../config/styles";
 
 const styles = StyleSheet.create({
+  speakerViewContainer: {
+    backgroundColor: "black",
+    height: "100%",
+    ...Platform.select({
+      android: {
+        marginBottom: 20
+      },
+      ios: { paddingTop: 20 }
+    })
+  },
   speakerView: {
     height: "98%",
     width: "90%",
@@ -9,7 +19,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: "white",
     alignSelf: "center",
-    borderRadius: 10
+    borderRadius: 10,
+    ...Platform.select({
+      android: {
+        top: 20
+      }
+    })
   },
   subText: {
     marginHorizontal: 50,
@@ -42,15 +57,14 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    // marginLeft: 90,
     marginLeft: "auto",
     marginRight: "auto",
     marginVertical: 20
   },
-
   readMorebuttonContainer: {
-    paddingRight: 15,
     height: 50,
+    marginLeft: "auto",
+    marginRight: "auto",
     ...Platform.select({
       android: {
         width: "87%",
@@ -75,18 +89,18 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Regular"
       },
       ios: { fontFamily: fonts.baseFont }
-    }),
-    flexDirection: "column-reverse"
+    })
   },
 
   readMorebutton: {
     borderRadius: 40,
-    marginLeft: 30
+    marginLeft: "auto",
+    marginRight: "auto"
   },
   readMoreText: {
     flexWrap: "wrap",
-    paddingLeft: 10,
-    paddingRight: 10,
+    marginRight: "auto",
+    marginLeft: "auto",
     marginTop: 10,
     paddingTop: 5,
     fontSize: 20,
@@ -95,11 +109,11 @@ const styles = StyleSheet.create({
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
-        width: "100%"
+        width: "100%",
+        textAlign: "center"
       },
       ios: { fontFamily: "Montserrat-light" }
-    }),
-    flexDirection: "column-reverse"
+    })
   },
   modal: {
     flexDirection: "row",

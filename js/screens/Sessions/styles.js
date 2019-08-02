@@ -112,10 +112,10 @@ const styles = StyleSheet.create({
   },
   faveText: {
     textAlign: "center",
-    paddingLeft: 10,
-    paddingRight: 10,
-    marginTop: 10,
-    // paddingTop: 5,
+
+    marginRight: "auto",
+    marginLeft: "auto",
+    marginTop: 11,
     fontSize: 20,
     fontWeight: "400",
     color: "white",
@@ -126,8 +126,7 @@ const styles = StyleSheet.create({
       ios: {
         fontFamily: "Montserrat-light"
       }
-    }),
-    flexDirection: "column-reverse"
+    })
   },
 
   favebutton: {
