@@ -11,28 +11,31 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   location: {
-    fontSize: 16,
+    fontSize: 17,
     marginVertical: 10,
     ...Platform.select({
       android: {
         fontFamily: fonts.baseFontRegular,
-        // color: colors.LightGrey,
         color: colors.MediumGrey,
-        fontWeight: "900"
+        fontWeight: "500"
       },
-      ios: { fontFamily: fonts.baseFont, color: colors.MediumGrey }
+      ios: {
+        fontFamily: fonts.baseFont,
+        color: colors.MediumGrey,
+        fontWeight: "500"
+      }
     }),
     marginHorizontal: 20
   },
   title: {
-    fontSize: 18,
+    fontSize: 19,
     marginTop: 10,
     fontWeight: "400",
     ...Platform.select({
       android: {
         fontFamily: "Montserrat-Regular",
         color: colors.MediumGrey,
-        fontWeight: "600"
+        fontWeight: "900"
       },
       ios: { fontFamily: fonts.baseFont, color: "black" }
     }),
@@ -48,7 +51,7 @@ const styles = StyleSheet.create({
         color: colors.MediumGrey,
         fontWeight: "900"
       },
-      ios: { fontFamily: fonts.baseFont, color: "black" }
+      ios: { fontFamily: fonts.baseFont, color: "black", fontWeight: "500" }
     }),
 
     padding: 20,

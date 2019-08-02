@@ -13,13 +13,15 @@ const styles = StyleSheet.create({
   },
   subText: {
     marginHorizontal: 50,
-    color: "black",
     fontSize: 28,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        color: colors.MediumGrey,
+        marginLeft: "auto",
+        marginRight: "auto"
       },
-      ios: { fontFamily: fonts.baseFont }
+      ios: { fontFamily: fonts.baseFont, color: "black", fontWeight: "bold" }
     }),
     marginBottom: 20
   },
@@ -40,14 +42,24 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    marginLeft: 90,
+    // marginLeft: 90,
+    marginLeft: "auto",
+    marginRight: "auto",
     marginVertical: 20
   },
 
   readMorebuttonContainer: {
     paddingRight: 15,
     height: 50,
-    width: 350,
+    ...Platform.select({
+      android: {
+        width: "87%",
+        marginBottom: 45
+      },
+      ios: {
+        width: "90%"
+      }
+    }),
     marginVertical: 25
   },
   aboutSpeakerText: {
@@ -72,9 +84,9 @@ const styles = StyleSheet.create({
     marginLeft: 30
   },
   readMoreText: {
-    textAlign: "center",
+    flexWrap: "wrap",
     paddingLeft: 10,
-    paddingRight: 20,
+    paddingRight: 10,
     marginTop: 10,
     paddingTop: 5,
     fontSize: 20,
@@ -82,9 +94,10 @@ const styles = StyleSheet.create({
     color: "white",
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Montserrat-Regular",
+        width: "100%"
       },
-      ios: { fontFamily: fonts.baseFont }
+      ios: { fontFamily: "Montserrat-light" }
     }),
     flexDirection: "column-reverse"
   },

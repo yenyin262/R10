@@ -25,11 +25,7 @@ const Speaker = ({ speaker }) => {
             colors={["#9963ea", "#8797D6"]}
             start={{ x: 0.0, y: 1.0 }}
             end={{ x: 1.0, y: 0.0 }}
-            style={[
-              StyleSheet.absoluteFill,
-              { width: "82%" },
-              styles.readMorebutton
-            ]}
+            style={[StyleSheet.absoluteFill, styles.readMorebutton]}
           >
             <TouchableOpacity onPress={() => Linking.openURL(speaker.url)}>
               <Text style={styles.readMoreText}> Read More on Wikipedia </Text>
