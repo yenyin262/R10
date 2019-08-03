@@ -16,7 +16,7 @@ class MapContainer extends Component {
       color: "white",
       fontSize: 24,
       ...Platform.select({
-        android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
+        android: { marginVertical: 10, fontFamily: fonts.baseFontRegular },
         ios: { marginBottom: 10, fontFamily: fonts.baseFont }
       })
     }

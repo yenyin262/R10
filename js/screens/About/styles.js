@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   header: {
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey,
         fontSize: 28,
         marginBottom: 10
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey
       },
       ios: { fontFamily: fonts.baseFont, fontWeight: "100", lineHeight: 25 }

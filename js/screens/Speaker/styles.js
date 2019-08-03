@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey,
         marginLeft: "auto",
         marginRight: "auto"
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: fonts.baseFontRegular
       },
       ios: { fontFamily: fonts.baseFont }
     }),
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     color: "white",
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: fonts.baseFontRegular
       },
       ios: { fontFamily: fonts.baseFont }
     })
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     color: "white",
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         width: "100%",
         textAlign: "center"
       },

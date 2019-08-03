@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         fontSize: 18
       },
       ios: { fontFamily: fonts.baseFont, fontSize: 20, fontWeight: "500" }
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey,
         fontWeight: "300"
       },
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         fontSize: 18
       },
       ios: { fontFamily: fonts.baseFont, fontSize: 20 }
@@ -48,11 +48,10 @@ const styles = StyleSheet.create({
     fontFamily: fonts.baseFont,
     ...Platform.select({
       android: {
-        color: "black",
         lineHeight: 28,
         fontWeight: "100"
       },
-      ios: { fontFamily: fonts.baseFont, lineHeight: 32, fontWeight: "200" }
+      ios: { lineHeight: 32, fontWeight: "200" }
     })
   },
   subText: {
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: fonts.baseFontRegular
       },
       ios: { fontFamily: fonts.baseFont, fontWeight: "500" }
     }),
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
 
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey,
         fontWeight: "900"
       },
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     color: "white",
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: fonts.baseFontRegular
       },
       ios: {
         fontFamily: fonts.baseFont

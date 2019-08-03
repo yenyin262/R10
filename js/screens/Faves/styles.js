@@ -4,10 +4,9 @@ import { colors, fonts } from "../../config/styles";
 const styles = StyleSheet.create({
   favesText: {
     fontSize: 20,
-    color: "black",
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: fonts.baseFontRegular
       },
       ios: { fontFamily: fonts.baseFont }
     })

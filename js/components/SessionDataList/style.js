@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey,
         fontWeight: "900"
       },
-      ios: { fontFamily: fonts.baseFont, color: "black" }
+      ios: { fontFamily: fonts.baseFont }
     }),
 
     marginHorizontal: 20
@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
     paddingTop: 7,
     ...Platform.select({
       android: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey,
         fontWeight: "900"
       },
-      ios: { fontFamily: fonts.baseFont, color: "black", fontWeight: "500" }
+      ios: { fontFamily: fonts.baseFont, fontWeight: "500" }
     }),
 
     padding: 20,

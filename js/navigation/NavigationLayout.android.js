@@ -7,10 +7,7 @@ import SessionScreen from "../screens/Sessions";
 import ScheduleScreen from "../screens/Schedule";
 import MapScreen from "../screens/Map";
 import FavesScreen from "../screens/Faves";
-import { colors } from "../config/styles";
-
-// takes 2 objects = param
-// name of screen a.
+import { colors, fonts } from "../config/styles";
 
 const AboutStack = createStackNavigator(
   {
@@ -54,7 +51,6 @@ const MapStack = createStackNavigator(
   }
 );
 
-// Dedicated stacks for Schedule and Faves will go here too!
 const MyDrawerNavigator = createDrawerNavigator(
   {
     Schedule: ScheduleStack,
@@ -87,7 +83,7 @@ const MyDrawerNavigator = createDrawerNavigator(
 
       labelStyle: {
         fontSize: 18,
-        fontFamily: "Montserrat-Regular",
+        fontFamily: fonts.baseFontRegular,
         fontWeight: "300"
       }
     }
