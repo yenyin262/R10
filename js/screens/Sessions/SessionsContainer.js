@@ -32,7 +32,8 @@ class SessionsContainer extends Component {
         android: { marginVertical: 10, fontFamily: fonts.baseFontRegular },
         ios: { marginBottom: 10, fontFamily: fonts.baseFont }
       })
-    }
+    },
+    headerTintColor: "white"
   };
 
   static contextType = FavesContext;
