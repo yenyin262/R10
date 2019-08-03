@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import AsyncStorage from "@react-native-community/async-storage";
-// create context is what
-// allows us to do similar things to a global state
-// create a context component insert a value
+
 const FavesContext = React.createContext();
 
 class FavesProvider extends Component {
@@ -11,8 +9,7 @@ class FavesProvider extends Component {
 
     this.state = {
       faveIds: [],
-      finalResult: [],
-      test: true
+      finalResult: []
     };
   }
   async componentDidMount() {
@@ -24,14 +21,14 @@ class FavesProvider extends Component {
     return AsyncStorage.getAllKeys().then(keys => {
       return AsyncStorage.multiGet(keys).then(result => {
         var finalResultx = [];
-        console.log(result, "results");
+
         for (const i of result) {
           finalResultx.push(i[0]);
         }
 
         this.setState({ faveIds: finalResultx });
         this.setState({ finalResult: finalResultx });
-        console.log(finalResultx, "myFaves");
+
         return finalResultx;
       });
     });
@@ -40,7 +37,6 @@ class FavesProvider extends Component {
   async removeFaves(sessionId) {
     try {
       await AsyncStorage.removeItem(sessionId);
-      console.log("BANANAS ARE GOOD FOR YOU");
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +44,6 @@ class FavesProvider extends Component {
   }
 
   async addFaves(sessionId) {
-    console.log(sessionId, "sessionid");
     try {
       await AsyncStorage.setItem(sessionId, "savedfave");
     } catch (error) {
@@ -59,15 +54,12 @@ class FavesProvider extends Component {
 
   render() {
     return (
-      //FavesContext.Provider - is the beginning where we put values
-      // so we can use later
       <FavesContext.Provider
         value={{
           getFavedSessionIds: this.getFavedSessionIds.bind(this),
           addFaves: this.addFaves.bind(this),
           removeFaves: this.removeFaves.bind(this),
-          faveIds: this.state.faveIds,
-          test: this.state.test
+          faveIds: this.state.faveIds
         }}
       >
         {this.props.children}

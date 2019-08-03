@@ -11,21 +11,13 @@ import ScheduleScreen from "../screens/Schedule";
 import MapScreen from "../screens/Map";
 import FavesScreen from "../screens/Faves";
 import { colors, fonts } from "../config/styles";
-// import NativeAppEventEmitter from "react-native";
 
-// takes 2 objects = param
-// name of screen a.
-// configuration of screen
-// moseratt - light - ios
-//moserat - android
 const AboutStack = createStackNavigator(
   {
     About: AboutScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      // sharenavigationoptions - need to use the default props
-      //pass the navigation prop/event to sharednavigation options
       ...sharedNavigationOptions(navigation)
     })
   }
@@ -61,7 +53,6 @@ const MapStack = createStackNavigator(
     })
   }
 );
-// Dedicated stacks for Schedule and Faves will go here too!
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -88,9 +79,9 @@ const TabNavigator = createBottomTabNavigator(
         return (
           <Icon
             name={iconName}
-            size={27}
+            size={30}
             color={tintColor}
-            style={{ paddingTop: 5, paddingBottom: 10 }}
+            style={{ top: 10, paddingBottom: 10 }}
           />
         );
       }
@@ -103,7 +94,8 @@ const TabNavigator = createBottomTabNavigator(
       labelStyle: {
         fontSize: 14,
         fontFamily: fonts.baseFont,
-        color: "white"
+        fontWeight: "500",
+        top: 10
       },
 
       style: {

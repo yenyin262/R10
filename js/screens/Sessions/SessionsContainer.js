@@ -1,7 +1,3 @@
-// create query
-// return about component
-// props to about container
-
 import React, { Component } from "react";
 import { View, Text, Platform } from "react-native";
 import { Query } from "react-apollo";
@@ -33,7 +29,7 @@ class SessionsContainer extends Component {
       color: "white",
       fontSize: 24,
       ...Platform.select({
-        android: { marginVertical: 10, fontFamily: "Montserrat-Regular" },
+        android: { marginVertical: 10, fontFamily: fonts.baseFontRegular },
         ios: { marginBottom: 10, fontFamily: fonts.baseFont }
       })
     }
@@ -44,9 +40,7 @@ class SessionsContainer extends Component {
   render() {
     const { navigation } = this.props;
 
-    // navigation name of object and navigate directs us to the directed route
     const session = navigation.getParam("Session");
-    console.log(`context test value is ${JSON.stringify(this.context)}`);
 
     return (
       <View>
@@ -57,20 +51,15 @@ class SessionsContainer extends Component {
             if (error) return <Text> Error :(</Text>;
 
             return (
-              // <FavesContext.Consumer>
-              //   {value => (
               <Sessions
                 speaker={data.Session.speaker}
                 session={session}
-                // favesFunctionality={value}
                 addFaves={this.context.addFaves}
                 removesFaves={this.context.removeFaves}
                 checkForFaves={this.context.getFavedSessionIds}
                 navigation={this.props.navigation}
                 faveIds={this.context.faveIds}
               />
-              //   )}
-              // </FavesContext.Consumer>
             );
           }}
         </Query>
