@@ -1,4 +1,3 @@
-// expect data and display it
 import React from "react";
 import { View, Text } from "react-native";
 import SessionDataList from "../../components/SessionDataList";

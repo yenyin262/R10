@@ -1,4 +1,3 @@
-// expect data and display it
 import React from "react";
 import pinImage from "../../assets/project-04/images/map_pin.png";
 import MapView, { Marker } from "react-native-maps";
