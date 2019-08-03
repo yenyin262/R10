@@ -5,7 +5,7 @@ import { gql } from "apollo-boost";
 import Faves from "./Faves";
 import LoaderScreen from "../../components/LoadingScreen";
 import FavesContext from "../../context/FavesContext";
-import { colors, fonts } from "../../config/styles";
+import { fonts } from "../../config/styles";
 
 const QUERY_SESSIONS = gql`
   query {

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../../config/styles";
+import { fonts } from "../../config/styles";
 
 const styles = StyleSheet.create({
   favesText: {
@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
       },
       ios: { fontFamily: fonts.baseFont }
     })
+  },
+  lineSeparator: {
+    borderBottomColor: colors.LightGrey,
+    borderBottomWidth: 1
   }
 });
 

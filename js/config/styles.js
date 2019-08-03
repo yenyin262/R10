@@ -7,6 +7,6 @@ export const colors = {
 };
 
 export const fonts = {
-  baseFont: "Montserrat-light",
+  baseFont: "Montserrat-Light",
   baseFontRegular: "Montserrat-Regular"
 };

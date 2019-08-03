@@ -76,15 +76,16 @@ const MyDrawerNavigator = createDrawerNavigator(
         return <Icon name={iconName} size={30} color={tintColor} />;
       }
     }),
-    drawerWidth: 200,
+    drawerWidth: 250,
     contentOptions: {
       activeTintColor: colors.Purple,
       inactiveTintColor: colors.MediumGrey,
 
       labelStyle: {
-        fontSize: 18,
+        fontSize: 20,
         fontFamily: fonts.baseFontRegular,
-        fontWeight: "300"
+        fontWeight: "300",
+        marginLeft: 0
       }
     }
   }

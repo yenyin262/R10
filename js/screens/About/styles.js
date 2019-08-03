@@ -53,6 +53,9 @@ const styles = StyleSheet.create({
     }),
 
     marginTop: 15
+  },
+  footer: {
+    fontSize: 19
   }
 });
 

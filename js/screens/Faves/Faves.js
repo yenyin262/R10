@@ -8,6 +8,7 @@ const Faves = ({ data, faveIds }) => {
   return faveIds.length > 0 ? (
     <View>
       <SessionDataList data={data} faveIds={faveIds} />
+      <View style={styles.lineSeparator} />
     </View>
   ) : (
     <View>

@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import About from "./About";
 import LoaderScreen from "../../components/LoadingScreen";
-import { colors, fonts } from "../../config/styles";
+import { fonts } from "../../config/styles";
 
 const QUERY_ABOUT = gql`
   query {

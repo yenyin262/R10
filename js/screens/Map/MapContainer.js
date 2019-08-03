@@ -11,7 +11,7 @@ const mapOS = Platform.select({
 
 class MapContainer extends Component {
   static navigationOptions = {
-    title: "Maps",
+    title: "Map",
     headerTitleStyle: {
       color: "white",
       fontSize: 24,

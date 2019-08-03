@@ -6,7 +6,6 @@ import Schedule from "./Schedule";
 import { fonts } from "../../config/styles";
 import FavesContext from "../../context/FavesContext";
 import LoaderScreen from "../../components/LoadingScreen";
-import PropTypes from "prop-types";
 
 const QUERY_SCHEDULE = gql`
   query {

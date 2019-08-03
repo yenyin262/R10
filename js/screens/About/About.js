@@ -34,7 +34,7 @@ const About = ({ data }) => {
         <CodeofConduct key={data.id} data={data} />
       ))}
       <View style={styles.lineSeparator} />
-      <Text style={styles.aboutText}> © RED Academy 2017</Text>
+      <Text style={[styles.aboutText, styles.footer]}> © RED Academy 2017</Text>
     </ScrollView>
   );
 };
