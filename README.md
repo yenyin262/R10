@@ -37,9 +37,10 @@ The following technologies were applied in building the mpbile application:-
 
 
 
-
 #  Personal Learning Developments: 
 
 1. React Native uses JavaScript to build mobile applications and can reload the app instantly without recompiling. 
+
+1. Async Storage helps to save and load data.
 
 
