@@ -4,26 +4,33 @@ import { colors, fonts } from "../../config/styles";
 const styles = StyleSheet.create({
   locationTitle: {
     marginHorizontal: 20,
-    marginVertical: 22,
     color: colors.MediumGrey,
     fontSize: 20,
     ...Platform.select({
       android: {
         fontFamily: fonts.baseFontRegular,
-        fontSize: 18
+        fontSize: 17,
+        marginTop: 20
       },
-      ios: { fontFamily: fonts.baseFont, fontSize: 20, fontWeight: "500" }
+      ios: {
+        fontFamily: fonts.baseFont,
+        fontSize: 20,
+        fontWeight: "500",
+        marginVertical: 22
+      }
     })
   },
   sessionTitle: {
-    fontSize: 32,
     ...Platform.select({
       android: {
         fontFamily: fonts.baseFontRegular,
         color: colors.MediumGrey,
-        fontWeight: "300"
+        fontWeight: "300",
+        fontSize: 22,
+        marginBottom: 10,
+        top: -10
       },
-      ios: { fontFamily: fonts.baseFont, fontWeight: "500" }
+      ios: { fontFamily: fonts.baseFont, fontWeight: "500", fontSize: 32 }
     }),
     marginHorizontal: 20
   },
@@ -36,34 +43,36 @@ const styles = StyleSheet.create({
         fontFamily: fonts.baseFontRegular,
         fontSize: 18
       },
-      ios: { fontFamily: fonts.baseFont, fontSize: 20 }
+      ios: { fontFamily: fonts.baseFont, fontSize: 20, marginTop: 20 }
     }),
-    marginTop: 20,
+
     marginHorizontal: 20
   },
   description: {
     marginHorizontal: 20,
     marginVertical: 20,
-    fontSize: 22,
+
     fontFamily: fonts.baseFont,
     ...Platform.select({
       android: {
         lineHeight: 28,
-        fontWeight: "100"
+        fontWeight: "100",
+        fontSize: 18
       },
-      ios: { lineHeight: 32, fontWeight: "200" }
+      ios: { lineHeight: 32, fontWeight: "200", fontSize: 22 }
     })
   },
   subText: {
     marginVertical: 15,
     marginHorizontal: 20,
     color: colors.MediumGrey,
-    fontSize: 20,
+
     ...Platform.select({
       android: {
-        fontFamily: fonts.baseFontRegular
+        fontFamily: fonts.baseFontRegular,
+        fontSize: 18
       },
-      ios: { fontFamily: fonts.baseFont, fontWeight: "500" }
+      ios: { fontFamily: fonts.baseFont, fontWeight: "500", fontSize: 20 }
     }),
     marginBottom: 20
   },
@@ -75,13 +84,11 @@ const styles = StyleSheet.create({
   },
   speakerContainer: {
     flexDirection: "row",
-
     alignItems: "center"
   },
   speakerName: {
     fontSize: 19,
     marginLeft: 10,
-
     ...Platform.select({
       android: {
         fontFamily: fonts.baseFontRegular,
@@ -111,7 +118,6 @@ const styles = StyleSheet.create({
   },
   faveText: {
     textAlign: "center",
-
     marginRight: "auto",
     marginLeft: "auto",
     marginTop: 11,
