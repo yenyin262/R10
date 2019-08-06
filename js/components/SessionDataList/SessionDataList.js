@@ -5,6 +5,7 @@ import { withNavigation } from "react-navigation";
 import { formatSessionData } from "../../lib/dataFormatForSchedule";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
+import PropTypes from "prop-types";
 
 class SessionDataList extends Component {
   constructor(props) {
@@ -52,7 +53,6 @@ class SessionDataList extends Component {
           ItemSeparatorComponent={() => <View style={styles.separator} />}
           renderSectionHeader={({ section: { title } }) => (
             <Text style={styles.time}>{moment(title).format("LT")}</Text>
-            // this title is the section title each data belongs to that title
           )}
           keyExtractor={data => "" + data.id}
         />
@@ -61,9 +61,10 @@ class SessionDataList extends Component {
   }
 }
 
-// SessionDataList.propTypes = {
-//   data: PropTypes.array.isRequired,
-//   navigation: PropTypes.func
-// };
+SessionDataList.propTypes = {
+  data: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired,
+  faveIds: PropTypes.array.isRequired
+};
 
 export default withNavigation(SessionDataList);
