@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
       android: {
         fontFamily: fonts.baseFontRegular,
         fontSize: 17,
-        marginTop: 20
+        marginTop: 20,
+        marginBottom: 20
       },
       ios: {
         fontFamily: fonts.baseFont,

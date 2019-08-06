@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     })
   },
   subText: {
-    marginHorizontal: 50,
+    marginHorizontal: 70,
     fontSize: 28,
     ...Platform.select({
       android: {

@@ -34,7 +34,7 @@ const Sessions = ({
         <View style={styles.containerTitle}>
           <Text style={styles.locationTitle}>{session.location}</Text>
           {isFav ? (
-            <Icon name={favSessionTitle} size={22} style={styles.favIcon} />
+            <Icon name={favSessionTitle} size={17} style={styles.favIcon} />
           ) : null}
         </View>
         <Text style={styles.sessionTitle}>{session.title}</Text>
