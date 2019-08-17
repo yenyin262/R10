@@ -14,6 +14,19 @@ import Icon from "react-native-vector-icons/Ionicons";
 import PropTypes from "prop-types";
 import { colors } from "../../config/styles";
 
+let speaker;
+let getSpeakerImage = speaker && speaker.image;
+let speakerName = speaker && speaker.name;
+let getSpeakerName;
+
+if (getSpeakerImage !== null) {
+  speaker = "";
+} else if (speakerName !== null) {
+  getSpeakerName = speaker.name;
+} else {
+  speaker = speaker.image;
+}
+
 const Sessions = ({
   session,
   speaker,
@@ -43,16 +56,20 @@ const Sessions = ({
           {moment(session.startTime).format("LT")}
         </Text>
         <Text style={styles.description}>{session.description}</Text>
-        <Text style={styles.subText}>Presented by:</Text>
+        {speaker ? <Text style={styles.subText}>Presented by:</Text> : <View />}
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("Speaker", { Speaker: speaker });
           }}
         >
           <View style={styles.speakerContainer}>
-            <Image source={{ uri: speaker.image }} style={styles.image} />
+            {speaker ? (
+              <Image source={{ uri: speaker.image }} style={styles.image} />
+            ) : (
+              <View />
+            )}
 
-            <Text style={styles.speakerName}>{speaker.name}</Text>
+            <Text style={styles.speakerName}>{getSpeakerName}</Text>
           </View>
         </TouchableOpacity>
         <View style={styles.lineSeparator} />
@@ -82,7 +99,7 @@ const Sessions = ({
 
 Sessions.propTypes = {
   session: PropTypes.object.isRequired,
-  speaker: PropTypes.object.isRequired,
+  speaker: PropTypes.object,
   navigation: PropTypes.object,
   faveIds: PropTypes.array.isRequired,
   addFaves: PropTypes.func,
