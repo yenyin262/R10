@@ -8,12 +8,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     ...Platform.select({
       android: {
-        container: {
-          flex: 1
-        },
         fontFamily: fonts.baseFontRegular
       },
       ios: { fontFamily: fonts.baseFont }
+    })
+  },
+  container: {
+    ...Platform.select({
+      android: {
+        flex: 1
+      }
     })
   }
 });
