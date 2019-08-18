@@ -14,19 +14,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import PropTypes from "prop-types";
 import { colors } from "../../config/styles";
 
-let speaker;
-let getSpeakerImage = speaker && speaker.image;
-let speakerName = speaker && speaker.name;
-let getSpeakerName;
-
-if (getSpeakerImage !== null) {
-  speaker = "";
-} else if (speakerName !== null) {
-  getSpeakerName = speaker.name;
-} else {
-  speaker = speaker.image;
-}
-
 const Sessions = ({
   session,
   speaker,
@@ -68,8 +55,11 @@ const Sessions = ({
             ) : (
               <View />
             )}
-
-            <Text style={styles.speakerName}>{getSpeakerName}</Text>
+            {speaker ? (
+              <Text style={styles.speakerName}>{speaker.name}</Text>
+            ) : (
+              <View />
+            )}
           </View>
         </TouchableOpacity>
         <View style={styles.lineSeparator} />
