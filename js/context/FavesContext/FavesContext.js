@@ -20,7 +20,7 @@ class FavesProvider extends Component {
   async getFavedSessionIds() {
     return AsyncStorage.getAllKeys().then(keys => {
       return AsyncStorage.multiGet(keys).then(result => {
-        var finalResultx = [];
+        let finalResultx = [];
 
         for (const i of result) {
           finalResultx.push(i[0]);
